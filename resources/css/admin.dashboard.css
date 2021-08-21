@@ -1,0 +1,9 @@
+.page-title .page-title-icon {
+    background: #00c292 !important;
+}
+.bg-gradient-success {
+    background: linear-gradient(to right, #faaf4ddb, #faa321) !important;
+}
+.bg-gradient-danger {
+    background: linear-gradient(to right, #f19174, #fc5353) !important;
+}

@@ -1,0 +1,115 @@
+.contact {
+    margin-top: 50px;
+}
+.topic {
+    font-size: 27px;
+    font-weight: 500;
+    padding: 10px;
+}
+.under_line{ 
+    width: 100%;
+    height: 3px;
+    background-color: #ccc;
+    position: relative;
+}
+.under_line::before{
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 100%;
+    left: 0;
+    background: #538167;
+}
+input, textarea {
+    width: 100%;
+    border-radius: 10px;
+    outline: none;
+    background-color: #fafafa;
+	border: 1px solid lightgray;
+    padding: 7px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+input:focus,textarea:focus {
+    border: 1px solid #538167;
+}
+label span{
+    font-size: 14px;
+    font-weight: 600;
+    color: #505f75;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+.submit {
+    padding: 10px;
+    width: 100px;
+    background-color: #538167;
+    color: white;
+    float: right;
+    margin-top: 20px;
+    border: none;
+    outline: none;
+    margin-bottom: 50px;
+}
+.submit:hover {
+    box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.21);
+}
+.intro-infor {
+    margin-top: 40px;
+	width: 98%;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+	font-size: 16px;
+	padding: 20px;
+}
+i {
+    color: #538167;
+    padding-right: 20px;
+}
+.extra {
+    padding-left: 34px;
+}
+.name-restaurant {
+    font-weight: 600;
+}
+.img-xoay {
+    border-radius: 50%;width: 200px;height: 200px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    float: left;
+    animation: xoayvong 10s linear 0s infinite;
+    -webkit-animation: xoayvong 10s linear 0s infinite;
+    -moz-animation: xoayvong 10s linear 0s infinite;
+    -o-animation: xoayvong 10s linear 0s infinite; 
+}
+/* Chrome, Safari, Opera */ 
+@-webkit-keyframes xoayvong{
+    from{
+        -webkit-transform:rotate(0deg);
+        -moz-transform:rotate(0deg);
+        -o-transform:rotate(0deg);
+    }
+    to{
+        -webkit-transform:rotate(360deg);
+        -moz-transform:rotate(360deg);
+        -o-transform:rotate(360deg);
+    }
+}
+/* Standard syntax */ 
+@keyframes xoayvong {
+    from{
+        -webkit-transform:rotate(0deg);
+        -moz-transform:rotate(0deg);
+        -o-transform:rotate(0deg);
+    }
+    to{
+        -webkit-transform:rotate(360deg);
+        -moz-transform:rotate(360deg);
+        -o-transform:rotate(360deg);
+    }
+}
+.img-zoom {
+    width: 400px;
+    margin-left: 30px;
+}
