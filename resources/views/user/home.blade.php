@@ -12,7 +12,7 @@
     <div class="container">
         <div class="category">
             <p class="text-desc">-Dịch vụ tại nhà hàng-</p>
-            <h1><span class="text-cate">MENU</span></h1>
+            <p><span class="text-cate">MENU</span></p>
         </div>
         <div class="row">
             <div class="col-md-3">
@@ -45,7 +45,7 @@
     <div class="container">
         <div class="category">
             <p class="text-desc">-Những món ăn được lựa chọn nhiều nhất-</p>
-            <h1><span class="text-cate">NỔI BẬT</span></h1>
+            <p><span class="text-cate">NỔI BẬT</span></p>
         </div>
         <div class="row">
             <div class="col-md-6">
@@ -140,7 +140,7 @@
     <div class="container-fuild content-center">
         <div class="category">
             <p class="text-desc">-Trải nghiệm dịch vụ-</p>
-            <h1><span class="text-cate">TRẢI NGHIỆM KHÁCH HÀNG</span></h1>
+            <p><span class="text-cate">TRẢI NGHIỆM KHÁCH HÀNG</span></p>
         </div>
         <div class="container">
             <div class="rate-carousel">
@@ -174,7 +174,7 @@
     <div class="container-fuild content-center">
         <div class="category">
             <p class="text-desc">-Chia sẻ kinh nghiệm-</p>
-            <h1><span class="text-cate">CẨM NANG</span></h1>
+            <p><span class="text-cate">CẨM NANG</span></p>
         </div>
         <div class="container-fuild">
             <div class="card-posts">

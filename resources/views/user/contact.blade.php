@@ -10,7 +10,7 @@
     @extends('layouts.user')
     @section('title','Liên hệ hỗ trợ')
     @section('content')
-        <div class="container contact">
+        <div class="container-fuild contact">
             <div class="row">
                 <div class="col-md-4">
                     <div class="topic">THÔNG TIN LIÊN HỆ</div>
@@ -29,12 +29,13 @@
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div>
+                    <div id="map" style="width: 100%; height: 400px" ></div>
+                    <!--<div>
                         <img class="img-xoay" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbK5IYxqZ04qQ61E-YI4VC0tbwXAb66O2vug&usqp=CAU" alt="">
                     </div>
                     <div>
                         <img class="img-zoom" src="https://free.vector6.com/wp-content/uploads/2021/03/0000000088-co-be-dau-bep-phong-cach-chibi-de-thuong-png-3.png">
-                    </div>
+                    </div>-->
                 </div>
                 <div class="col-md-4">
                     <div class="topic">LIÊN LẠC</div>
@@ -57,6 +58,26 @@
                 </div>
             </div>
         </div>
+        <script>
+            // Initialize and add the map
+            function initMap() {
+              // The location of Uluru
+              const uluru = { lat: 16.8181338, lng: 107.1025157 };
+              // The map, centered at Uluru
+              const map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 4,
+                center: uluru,
+              });
+              // The marker, positioned at Uluru
+              const marker = new google.maps.Marker({
+                position: uluru,
+                map: map,
+              });
+            }
+        </script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB7ZW0p0ZTdEwpt3ex9-FBrGXuCKBLjaF8&callback=initMap&libraries=&v=weekly&z=200" async></script>
+        <script src="../resources/js/contact.js"></script>
+
     @endsection
 </body>
 </html>

@@ -53,6 +53,9 @@
         </div>
     </header>
     @yield('content')
+    <button onclick="topFunction()" id="BtnTop" title="Trở về đầu trang">
+      <i class="fas fa-chevron-up"></i><br>
+      Top</button>
     <footer>
 
     </footer>
