@@ -27,15 +27,21 @@ Route::prefix('admin')->group( function() {
     // Route::get('/', ); // casi nay de dan toi trang login admin
     Route::get('/dashboard', 'App\Http\Controllers\AdminControllers\HomeController@dashboard');
     Route::get('/management-user', 'App\Http\Controllers\AdminControllers\HomeController@user');
-    Route::get('/management-categories', 'App\Http\Controllers\AdminControllers\HomeController@categories');
+
+    Route::get('/management-categories', 'App\Http\Controllers\AdminControllers\CategoryController@index');
+    Route::get('/category/create', 'App\Http\Controllers\AdminControllers\CategoryController@create');
+    Route::post('/category/store', 'App\Http\Controllers\AdminControllers\CategoryController@store');
+    
+    Route::get('/management-products', 'App\Http\Controllers\AdminControllers\ProductController@index');
+    Route::get('/product/create', 'App\Http\Controllers\AdminControllers\ProductController@create');
+    Route::post('/product/store', 'App\Http\Controllers\AdminControllers\ProductController@store');
+    Route::get('/add-sale', 'App\Http\Controllers\AdminControllers\HomeController@add_sale');
+
     Route::get('/management-posts', 'App\Http\Controllers\AdminControllers\HomeController@posts');
-    Route::get('/management-products', 'App\Http\Controllers\AdminControllers\HomeController@products');
     Route::get('/management-questions', 'App\Http\Controllers\AdminControllers\HomeController@questions');
     Route::get('/management-contacts', 'App\Http\Controllers\AdminControllers\HomeController@contacts');
     Route::get('/management-charts', 'App\Http\Controllers\AdminControllers\HomeController@charts');
     Route::get('/check-post', 'App\Http\Controllers\AdminControllers\HomeController@check_post');
     Route::get('/intro-restaurant', 'App\Http\Controllers\AdminControllers\HomeController@intro_restaurant');
-    Route::get('/add-product', 'App\Http\Controllers\AdminControllers\HomeController@add_product');
-    Route::get('/add-sale', 'App\Http\Controllers\AdminControllers\HomeController@add_sale');
-    Route::get('/add-category', 'App\Http\Controllers\AdminControllers\HomeController@add_category');
+    
 });

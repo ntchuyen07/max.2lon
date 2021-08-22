@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCategoriesTable extends Migration
+class CreateContactsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,14 @@ class CreateCategoriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('categories', function (Blueprint $table) {
-            $table->bigIncrements('id');
+        Schema::create('contacts', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('user_id');
+            $table->string('email')->nullable();
             $table->string('name');
-            $table->string('description')->nullable();
+            $table->string('content');
+            $table->string('reply')->nullable();
+            $table->datetime('reply_at')->nullable();
             $table->timestamps();
         });
     }
@@ -28,6 +32,6 @@ class CreateCategoriesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('categories');
+        Schema::dropIfExists('contacts');
     }
 }

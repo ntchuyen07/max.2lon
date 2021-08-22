@@ -16,10 +16,7 @@ class HomeController extends Controller
     {
         return view('admin.user');
     }
-    function categories()
-    {
-        return view('admin.categories');
-    }
+    
     function posts()
     {
         return view('admin.posts');

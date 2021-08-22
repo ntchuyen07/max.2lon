@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="{{ asset('adminTemplate/assets/css/style.css') }}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:400,600,700,800&display=swap">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="stylesheet" href="../../resources/css/admin.custom.css">
+    <link rel="stylesheet" href="{{ asset('assests/css/admin/admin.custom.css') }}">
     @yield('style')
     <!-- End layout styles -->
   </head>
@@ -204,8 +204,8 @@
               </a>
               <div class="collapse" id="ui-basic">
                 <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> <a class="nav-link" href="./management-categories">Danh sách</a></li>
-                  <li class="nav-item"> <a class="nav-link" href="./add-category">Thêm mới</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="{{ URL::to('admin/management-categories') }}">Danh sách</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="{{ URL::to('admin/category/create') }}">Thêm mới</a></li>
                 </ul>
               </div>
             </li>
@@ -217,8 +217,8 @@
               </a>
               <div class="collapse" id="ui-basic-menu">
                 <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> <a class="nav-link" href="./management-products">Danh sách</a></li>
-                  <li class="nav-item"> <a class="nav-link" href="./add-product">Thêm mới</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="{{ URL::to('admin/management-products') }}">Danh sách</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="{{ URL::to('admin/product/create') }}">Thêm mới</a></li>
                   <li class="nav-item"> <a class="nav-link" href="./add-sale">Giảm giá</a></li>
                 </ul>
               </div>
@@ -310,7 +310,7 @@
     </div>
     <!-- container-scroller -->
     <!-- plugins:js -->
-    <script src="https://code.jquery.com/jquery-3.6.0.slim.js" integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="{{ asset('adminTemplate/assets/vendors/js/vendor.bundle.base.js') }}"></script>
     <!-- endinject -->
     <!-- Plugin js for this page -->
@@ -324,5 +324,6 @@
     <!-- Custom js for this page -->
     <script src="{{ asset('adminTemplate/assets/js/dashboard.js') }}"></script>
     <script src="{{ asset('adminTemplate/assets/js/todolist.js') }}"></script>
+    @yield('js')
   </body>
 </html>
