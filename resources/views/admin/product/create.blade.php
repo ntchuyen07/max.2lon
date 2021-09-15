@@ -8,15 +8,23 @@
       <div class="card border-success"  style="width: 60%; margin: 20px; margin-left: 32px;" >
         <div class="card-header"><b>Thêm sản phẩm mới</b></div>
         <div class="card-body text-success">
-          <form id="create-category-form" method="post" action="{{ URL::to('admin/category/store') }}">
+          <form id="create-category-form" method="post" action="{{ URL::to('admin/product/store') }}" enctype="multipart/form-data" >
             {{ csrf_field() }}
             <div class="form-group">
               <label for="name"><b>Tên sản phẩm (*)</b></label>
               <input type="text" name="name" class="form-control" id="name" aria-describedby="emailHelp" placeholder="Tên danh mục" required>
             </div>
             <div class="form-group">
+              <label for="name"><b>Hình ảnh sản phẩm (*)</b></label>
+              <input type="file" name="image[]" multiple class="form-control" id="image" required>
+            </div>
+            <div class="form-group">
               <label for="description"><b>Mô tả sản phẩm (*)</b></label>
-              <input type="text" name="description" class="form-control" id="description" placeholder="Mô tả sản phẩm">
+              <textarea name="description" class="form-control" id="description" id="" cols="30" rows="10" placeholder="Mô tả sản phẩm"></textarea>
+              <script src="https://cdn.ckeditor.com/4.15.0/standard/ckeditor.js"></script>
+              <script>
+                CKEDITOR.replace('description');
+            </script>
             </div>
             <div class="form-group">
               <label for="price"><b>Giá (*)</b></label>
@@ -24,11 +32,11 @@
             </div>
             <div class="form-group">
               <label for="amount"><b>Số lượng (*)</b></label>
-              <input type="text" name="amount" class="form-control" id="amount" placeholder="Số lượng">
+              <input type="number" name="amount" class="form-control" id="amount" placeholder="Số lượng">
             </div>
             <div class="form-group">
               <label for="category"><b>Danh mục (*)</b></label>
-              <select name="category" id="category" class="form-control">
+              <select name="category_id" id="category" class="form-control">
                 @foreach ($categories as $category)
                   <option value="{{ $category->id }}">{{ $category->name }}</option>   
                 @endforeach
@@ -38,8 +46,8 @@
               <button type="submit" class="btn btn-success">Thêm mới</button>
             </div>
             <div class="form-group">
-              <label for="amount"><b>Giảm giá</b></label>
-              <input type="text" name="amount" class="form-control" id="amount" title="Có thể điền theo phần trăm(10%) hoặc theo số tiền (20000VND)" placeholder="Giảm giá">
+              <label for="discount"><b>Giảm giá</b></label>
+              <input type="text" name="discount" class="form-control" id="discount" title="Có thể điền theo phần trăm(10%) hoặc theo số tiền (20000VND)" placeholder="Giảm giá">
             </div>
           </form>
         </div>
@@ -59,8 +67,13 @@
       </div>
     </div>
   </div>
+  @if (session('product-status'))
+    <script>
+      $('#open-modal-btn').click();
+    </script>
+  @endif
 @endsection
 
 @section('js')
-    <script src="{{ asset('assests/js/admin/createCategory.admin.js') }}" ></script>
+    {{-- <script src="{{ asset('assests/js/admin/createProduct.admin.js') }}" ></script> --}}
 @endsection

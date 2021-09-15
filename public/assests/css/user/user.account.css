@@ -1,0 +1,237 @@
+button:focus, a:focus {
+  outline: none;
+}
+.menu-account {
+    border-radius: 3px;
+    padding: 40px;
+    box-shadow: 0 0 30px 0 rgba(0,0,0,0.39);
+    background: rgba(0,0,0,0.99);
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    color: white;
+}
+.avatar-acc {
+    width: 90px;
+    height: 90px;
+    border-radius: 62.5px;
+    border: 1px solid rgb(34, 140, 226);
+    padding: 2px;
+}
+.content-infor {
+    display: flex;
+    align-items: center;
+    padding-bottom: 40px;
+}
+.fullname {
+    text-transform: uppercase;
+    font-size: 20px;
+    margin-bottom: 10px;
+    font-weight: 600;
+  }
+  .role-acc {
+    background-color: rgb(235, 163, 54);
+    color: white;
+    font-size: 16px;
+    padding: 5px;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+.extends {
+    color: white;
+}
+.tabs {
+    border: none !important;
+    width: 100% !important;
+}
+
+/* Style the buttons inside the tab */
+.tabs button {
+    display: block;
+    background-color: inherit;
+    color: teal;
+    padding: 22px 16px;
+    width: 100%;
+    border: none;
+    outline: none;
+    text-align: left;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 17px;
+  }
+  
+  /* Change background color of buttons on hover */
+  .tabs button:hover {
+    background-color: #ddd;
+  }
+  
+  /* Create an active/current "tab button" class */
+  .tabs button.active {
+    background-color: white;
+    color: black;
+  }
+  
+/* Style the tab content */
+.tabcontent {
+    margin-top: 70px;
+    float: left;
+    padding: 0px 12px;
+    width: 100%;
+    border-left: none;
+  }
+.change-pass {
+    color: teal;
+    text-decoration: none;
+    margin-left: 15px;
+  }
+  .change-pass:hover {
+    text-decoration: none;
+}
+.i-tab {
+    padding-right: 40px;
+}
+.input-infor {
+    border:none;
+    outline: none;
+    background: none;
+    display: block;
+    width: 100%;
+    margin-top: 5px;
+    font-size: 16px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid rgba(109, 93, 93, 0.4);
+    font-family: 'Nunito', sans-serif; 
+  }
+  .span-infor {
+    font-size: 14px;
+    font-weight: 600;
+    color: #505f75;
+    text-transform: uppercase;
+  }
+  label {
+    display: block;
+    margin: 25px auto 0;
+  }
+  .btn-update {
+    border: none;
+    background-color: rgb(6, 136, 136);
+    color: white;
+    border-bottom: rgb(235, 180, 31);
+    border-radius: 20px;
+    height: 45px;
+    padding: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-top: 20px;
+    float: right;
+    
+  }
+  .img-change {
+    width: 300px;
+    height: 300px;
+    padding: 3px;
+    border: 1px solid black;
+    border-radius: 150px;
+  }
+  .change-img {
+    display: flex;
+    align-items: center;
+  }
+  .infor-form {
+    margin-left: 20px;
+  }
+  .form-group-pass{
+    padding:5px;
+    border:2px solid #538167;
+    margin:10px;
+    border-radius: 10px;
+    margin-top: 40px;
+    width: 60%;
+    margin-left: 200px;
+  }
+  .form-group-pass>label{
+    position:absolute;
+    margin-left:10px;
+    margin-top: -20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color:white;
+  }
+  
+  .form-group-pass>input {
+    border:none;
+    outline: none;
+    background: none;
+  }
+  .form-group-pass>input:focus {
+      outline: none;
+      border:none;
+  }
+
+  /*My Post*/
+  .image-mypost {
+      height: 120px;
+  }
+th {
+    padding: 15px;
+    text-align: center;
+}
+td {
+  padding: 20px;
+}
+.center-post {
+    text-align: center;
+}
+.name-mypost {
+    color: rgb(34, 104, 34);
+    font-family: "Roboto Slab",sans-serif;
+    font-weight: 700;
+}
+.name-mypost:hover {
+    text-decoration: none;
+    color: #538167;
+}
+
+/*Contact*/
+a:hover {
+  text-decoration: none;
+}
+.link-mail {
+  font-size: 14px;
+}
+.btn-detail-contact {
+  justify-content: center;
+  text-align: center;
+  color: rgb(34, 104, 34);
+  background: #ffffff;
+}
+.btn-detail-contact:hover {
+  text-align: center;
+  color: #ffffff;
+  background: rgb(34, 104, 34);
+}
+.title-contact {
+  color: rgb(34, 104, 34);
+  font-size: 18px;
+  font-weight: 500;
+  font-family: "Sofia";
+  padding-bottom: 10px;
+  padding-top: 5px;
+}
+.reply-contact {
+  border: 0.1px solid rgb(34, 104, 34);
+  padding: 20px;
+  margin-top: 10px;
+}
+.text-contact {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+.contact {
+  border: 0.1px solid rgb(19, 53, 206);
+  padding: 20px;
+  margin-top: 10px;
+}

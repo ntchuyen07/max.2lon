@@ -1,6 +1,7 @@
 @extends('layouts.admin')
 
 @section('style')
+  <link rel="stylesheet" href="{{ asset('assests/css/admin/admin.product.css') }}">
 @endsection
 @section('content')
   <div class="row">
@@ -14,6 +15,7 @@
                 <tr>
                   <th>STT</th>
                   <th>Tên sản phẩm </th>
+                  <th>Hình ảnh</th>
                   <th>Mô tả </th>
                   <th>Giá </th>
                   <th>Số lượng </th>
@@ -31,7 +33,20 @@
                     <td>
                       {{ $product->name }}
                     </td>
-                    <td> {!! $product->description !!} </td>
+                    <td><img src="{{asset($product->image)}}" alt=""></td>
+                    <td> <div class="desc-product">{!! $product->description !!} </div></td>
+                    <td>
+                      {{ $product->price }}
+                    </td>
+                    <td>
+                      {{ $product->amount }}
+                    </td>
+                    <td>
+                      {{ $product->category }}
+                    </td>
+                    <td>
+                      {{ $product->discount }}
+                    </td>
                     <td>
                       <button type="button" class="btn btn-inverse-info btn-icon"><i class="mdi mdi-eraser-variant"></i></button>
                     </td>

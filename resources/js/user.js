@@ -15,8 +15,13 @@ function loadActiveNavbar() {
         case 'product':
             navItems[1].classList.add('active')
             break;
-        case 'cach-lam-tra-bi-dao':
+        case 'chia-se-bai-viet':
+        case 'list-posts':
+        case 'post':
             navItems[2].classList.add('active')
+            break;
+        case 've-chung-toi':
+            navItems[3].classList.add('active')
             break;
         case 'contact':
             navItems[4].classList.add('active')

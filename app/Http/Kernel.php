@@ -13,6 +13,8 @@ class Kernel extends HttpKernel
      *
      * @var array
      */
+
+     // them middleware de su dung cho ca he thong
     protected $middleware = [
         // \App\Http\Middleware\TrustHosts::class,
         \App\Http\Middleware\TrustProxies::class,
@@ -21,6 +23,7 @@ class Kernel extends HttpKernel
         \Illuminate\Foundation\Http\Middleware\ValidatePostSize::class,
         \App\Http\Middleware\TrimStrings::class,
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
+    //  \App\Http\Middleware\AuthMiddleware::class, // neu ma dinh nghia cho nay, thi tat cac cac route deu su dung middleware nay luon
     ];
 
     /**
@@ -52,6 +55,7 @@ class Kernel extends HttpKernel
      *
      * @var array
      */
+    // khai bao ten middleware
     protected $routeMiddleware = [
         'auth' => \App\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
@@ -62,5 +66,7 @@ class Kernel extends HttpKernel
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
+        'auth.middleware' => \App\Http\Middleware\AuthMiddleware::class,
+        'admin.middleware'=> \App\Http\Middleware\checkAdminRole::class,
     ];
 }

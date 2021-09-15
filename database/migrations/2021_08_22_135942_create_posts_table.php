@@ -17,6 +17,7 @@ class CreatePostsTable extends Migration
             $table->bigIncrements('id');
             $table->integer('user_id');
             $table->string('title');
+            $table->string('slug');
             $table->text('content');
             $table->integer('isCheck')->default(2);
             $table->integer('view')->default(0);

@@ -16,7 +16,8 @@
         <div class="cont">
             <div class="form sign-in"> 
                 <h2>Mừng bạn quay trở lại,</h2>
-                <form action="../Model/login.php" method="POST">
+                <form action="{{URL::to('/login')}}" method="POST">
+                    {{ csrf_field() }}
                     <label>
                         <span>Email</span>
                         <input type="email" name="email" required="">
@@ -53,7 +54,8 @@
                 </div>
                 <div class="form sign-up">
                     <h2 style="margin-top: -30px;">Tôi là thành viên mới,</h2>
-                    <form action="" method="POST">
+                    <form action="{{ URL::to('/register')}}" method="POST">
+                        {{ csrf_field() }}
                         <label>
                             <span>Họ và tên</span>
                             <input type="text" name="name" required="">
@@ -72,7 +74,7 @@
                         </label>
                         <label>
                             <span>Số điện thoại</span>
-                            <input type="text" name="phone">
+                            <input type="text" name="phone" required="">
                         </label>
                         <input type="submit" value="Đăng ký" name="submit" class="submit">
                     </form>

@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('style')
-    <link rel="stylesheet" href="../../resources/css/admin.dashboard.css">
+    <link rel="stylesheet" href="../resources/css/admin.dashboard.css">
 @endsection
 
 @section('content')
@@ -45,6 +45,55 @@
             </h4>
             <h2 class="mb-5">95.741</h2>
             <h6 class="card-text">Tăng 5%</h6>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row" id="proBanner">
+      <div class="col-12 grid-margin">
+        <div class="card">
+          <div class="card-body">
+            <div class="d-flex align-items-center">
+              <h5 class="card-title float-left">Đơn hàng mới nhất</h5>
+              <a href="https://www.bootstrapdash.com/product/purple-bootstrap-admin-template?utm_source=organic&utm_medium=banner&utm_campaign=free-preview" target="_blank" class="btn btn-success ml-auto">Xác nhận</a>
+              <a href=""><i class="mdi mdi-close" id="bannerClose"></i></a>
+            </div>
+            <div>
+              <p class="new-order">Người nhận: Hồ Thanh Phong - 0123456789</p>
+              <p class="new-order">Địa chỉ nhận hàng: 100 Ngô Quyền, phường 5, thành phố Đông Hà, Quảng Trị</p>
+              <p class="new-order">Thời gian nhận hàng dự kiến: 15:00 29/08/2021</p>
+              <table class="table">
+                <tr>
+                  <th>STT</th>
+                  <th>Tên sản phẩm</th>
+                  <th>Số lượng</th>
+                  <th>Đơn giá</th>
+                  <th>Tổng tiền</th>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>Gà hấp mắm</td>
+                  <td>2</td>
+                  <td>270.000</td>
+                  <td>540.000</td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>Soda Phúc bồn tử</td>
+                  <td>5</td>
+                  <td>35.000</td>
+                  <td>175.000</td>
+                </tr>
+                <tr>
+                  <th colspan="4">Voucher</th>
+                  <th>- 5%</th>
+                </tr>
+                <tr>
+                  <th colspan="4">Tổng thanh toán</th>
+                  <th class="text-danger">679.250</th>
+                </tr>
+              </table>
+            </div>
           </div>
         </div>
       </div>
@@ -166,42 +215,42 @@
                 <li>
                   <div class="form-check">
                     <label class="form-check-label">
-                      <input class="checkbox" type="checkbox"> Giảm 5% cho các món gà </label>
+                      <input class="form-check-input" type="checkbox"> Giảm 5% cho các món gà </label>
                   </div>
                   <i class="remove mdi mdi-close-circle-outline"></i>
                 </li>
                 <li>
                   <div class="form-check">
                     <label class="form-check-label">
-                      <input class="checkbox" type="checkbox"> Free ship khu vực Đông Hà </label>
+                      <input class="form-check-input" type="checkbox"> Free ship khu vực Đông Hà </label>
                   </div>
                   <i class="remove mdi mdi-close-circle-outline"></i>
                 </li>
                 <li>
                   <div class="form-check">
                     <label class="form-check-label">
-                      <input class="checkbox" type="checkbox"> Tặng voucher 100.000đ cho hóa đơn trên 1.000.000đ </label>
+                      <input class="form-check-input" type="checkbox"> Tặng voucher 100.000đ cho hóa đơn trên 1.000.000đ </label>
                   </div>
                   <i class="remove mdi mdi-close-circle-outline"></i>
                 </li>
                 <li>
                   <div class="form-check">
                     <label class="form-check-label">
-                      <input class="checkbox" type="checkbox"> Mã VC21467G1A giảm tối đa 50.000 cho bất cứ hóa đơn nào </label>
+                      <input class="form-check-input" type="checkbox"> Mã VC21467G1A giảm tối đa 50.000 cho bất cứ hóa đơn nào </label>
                   </div>
                   <i class="remove mdi mdi-close-circle-outline"></i>
                 </li>
                 <li>
                   <div class="form-check">
                     <label class="form-check-label">
-                      <input class="checkbox" type="checkbox"> Mã GF608327V1A giảm tối đa 50.000 cho các món gà </label>
+                      <input class="form-check-input" type="checkbox"> Mã GF608327V1A giảm tối đa 50.000 cho các món gà </label>
                   </div>
                   <i class="remove mdi mdi-close-circle-outline"></i>
                 </li>
                 <li>
                   <div class="form-check">
                     <label class="form-check-label">
-                      <input class="checkbox" type="checkbox"> Tặng kèm hai lon Tiger cho 100 hóa đơn đầu tiên </label>
+                      <input class="form-check-input" type="checkbox"> Tặng kèm hai lon Tiger cho 100 hóa đơn đầu tiên </label>
                   </div>
                   <i class="remove mdi mdi-close-circle-outline"></i>
                 </li>
@@ -313,146 +362,6 @@
               <div class="ml-auto">
                 <button class="btn btn-success">Duyệt</button>
               </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-7 grid-margin stretch-card">
-        <div class="card">
-          <div class="card-body">
-            <h4 class="card-title">Sản phẩm bán chạy gần đây</h4>
-            <div class="table-responsive">
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th> Hình ảnh </th>
-                    <th> Tên món </th>
-                    <th> Giá </th>
-                    <th> Số lượng </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td> 1 </td>
-                    <td> Soda Trái cây </td>
-                    <td> 35.000 </td>
-                    <td>
-                      <div class="progress">
-                        <div class="progress-bar bg-gradient-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td> 2 </td>
-                    <td> Messsy Adam </td>
-                    <td> Jul 01, 2015 </td>
-                    <td>
-                      <div class="progress">
-                        <div class="progress-bar bg-gradient-danger" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td> 3 </td>
-                    <td> John Richards </td>
-                    <td> Apr 12, 2015 </td>
-                    <td>
-                      <div class="progress">
-                        <div class="progress-bar bg-gradient-warning" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td> 4 </td>
-                    <td> Peter Meggik </td>
-                    <td> May 15, 2015 </td>
-                    <td>
-                      <div class="progress">
-                        <div class="progress-bar bg-gradient-primary" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td> 5 </td>
-                    <td> Edward </td>
-                    <td> May 03, 2015 </td>
-                    <td>
-                      <div class="progress">
-                        <div class="progress-bar bg-gradient-danger" role="progressbar" style="width: 35%" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100"></div>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td> 5 </td>
-                    <td> Ronald </td>
-                    <td> Jun 05, 2015 </td>
-                    <td>
-                      <div class="progress">
-                        <div class="progress-bar bg-gradient-info" role="progressbar" style="width: 65%" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
-                      </div>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-5 grid-margin stretch-card">
-        <div class="card">
-          <div class="card-body">
-            <h4 class="card-title text-white">Todo</h4>
-            <div class="add-items d-flex">
-              <input type="text" class="form-control todo-list-input" placeholder="What do you need to do today?">
-              <button class="add btn btn-gradient-primary font-weight-bold todo-list-add-btn" id="add-task">Add</button>
-            </div>
-            <div class="list-wrapper">
-              <ul class="d-flex flex-column-reverse todo-list todo-list-custom">
-                <li>
-                  <div class="form-check">
-                    <label class="form-check-label">
-                      <input class="checkbox" type="checkbox"> Meeting with Alisa </label>
-                  </div>
-                  <i class="remove mdi mdi-close-circle-outline"></i>
-                </li>
-                <li class="completed">
-                  <div class="form-check">
-                    <label class="form-check-label">
-                      <input class="checkbox" type="checkbox" checked> Call John </label>
-                  </div>
-                  <i class="remove mdi mdi-close-circle-outline"></i>
-                </li>
-                <li>
-                  <div class="form-check">
-                    <label class="form-check-label">
-                      <input class="checkbox" type="checkbox"> Create invoice </label>
-                  </div>
-                  <i class="remove mdi mdi-close-circle-outline"></i>
-                </li>
-                <li>
-                  <div class="form-check">
-                    <label class="form-check-label">
-                      <input class="checkbox" type="checkbox"> Print Statements </label>
-                  </div>
-                  <i class="remove mdi mdi-close-circle-outline"></i>
-                </li>
-                <li class="completed">
-                  <div class="form-check">
-                    <label class="form-check-label">
-                      <input class="checkbox" type="checkbox" checked> Prepare for presentation </label>
-                  </div>
-                  <i class="remove mdi mdi-close-circle-outline"></i>
-                </li>
-                <li>
-                  <div class="form-check">
-                    <label class="form-check-label">
-                      <input class="checkbox" type="checkbox"> Pick up kids from school </label>
-                  </div>
-                  <i class="remove mdi mdi-close-circle-outline"></i>
-                </li>
-              </ul>
             </div>
           </div>
         </div>

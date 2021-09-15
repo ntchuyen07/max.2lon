@@ -57,3 +57,24 @@ select.form-control {
   outline: none !important;
   color: #495057 !important;
 }
+.img-post {
+  width: 250px !important;
+  height: 160px !important;
+  border-radius: 0 !important;
+}
+.new-order {
+  padding-bottom: 5px !important;
+}
+.image-review-item {
+  margin-top: 20px !important;
+  width: 90px !important;
+  height: 90px !important;
+  margin-right: 15px !important;
+  border-radius: 0 !important;
+}
+.intro-contact {
+  overflow: hidden;
+  display: -webkit-box;
+-webkit-box-orient: vertical;
+-webkit-line-clamp: 3;
+}  

@@ -1,0 +1,8 @@
+.desc-product {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+    padding-left: 30px;
+    padding-right: 30px;
+}

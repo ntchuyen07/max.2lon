@@ -8,7 +8,13 @@
     <div class="col-12 grid-margin">
       <div class="card">
         <div class="card-body">
-          <h4 class="card-title">Quản lý người dùng</h4>
+          <h4 class="card-title">Quản lý người dùng (12 người dùng)</h4>
+          <div>
+            <button class="btn btn-success">Thành viên</button>
+            <button class="btn btn-warning">VIP</button>
+            <button class="btn btn-info">Shipper</button>
+            <button class="btn btn-danger">Quản trị viên</button>
+          </div>
           <div class="table-responsive">
             <table class="table table-striped">
               <thead>
@@ -21,138 +27,34 @@
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>
-                    <img src="{{ asset('adminTemplate/assets/images/faces/face1.jpg') }}" class="mr-2" alt="image"> Anh Tuấn
-                  </td>
-                  <td> anhtuandeptrai@gmail.com </td>
-                  <td>
-                    <label class="badge badge-success">Thành viên</label>
-                  </td>
-                  <td> 0123456789 </td>
-                  <td> WD-12345 </td>
-                </tr>
-                <tr>
-                  <td>
-                    <img src="{{ asset('adminTemplate/assets/images/faces/face2.jpg') }}" class="mr-2" alt="image"> Minh Tú
-                  </td>
-                  <td> minhtu2001@gmail.com </td>
-                  <td>
-                    <label class="badge badge-warning">VIP</label>
-                  </td>
-                  <td> 0123452017 </td>
-                  <td> WD-12346 </td>
-                </tr>
-                <tr>
-                  <td>
-                    <img src="{{ asset('adminTemplate/assets/images/faces/face3.jpg') }}" class="mr-2" alt="image"> Nhật Nam
-                  </td>
-                  <td> greenbook.vku@gmail.com </td>
-                  <td>
-                    <label class="badge badge-info">Shipper</label>
-                  </td>
-                  <td> 0912345123 </td>
-                  <td> WD-12347 </td>
-                </tr>
-                <tr>
-                  <td>
-                    <img src="{{ asset('adminTemplate/assets/images/faces/face4.jpg') }}" class="mr-2" alt="image"> Hoàng Hải
-                  </td>
-                  <td> hoanghai.max.2lon@gmail.com </td>
-                  <td>
-                    <label class="badge badge-danger">Quản trị viên</label>
-                  </td>
-                  <td> 1234567321 </td>
-                  <td> WD-12348 </td>
-                </tr>
-                <tr>
+                @foreach ($users as $index=>$user)
+                  <tr>
                     <td>
-                      <img src="{{ asset('adminTemplate/assets/images/faces/face1.jpg') }}" class="mr-2" alt="image"> Anh Tuấn
+                      <img src="{{ asset($user->avatar) }}" class="mr-2" alt="image"> {{$user->name}}
                     </td>
-                    <td> anhtuandeptrai@gmail.com </td>
+                    <td> {{$user->email}}</td>
                     <td>
-                      <label class="badge badge-success">Thành viên</label>
+                      @switch($user->role)
+                          @case(1)
+                              <label class="badge badge-success">Thành viên</label>
+                              @break
+                          @case(2)
+                              <label class="badge badge-danger">Quản trị viên</label>
+                              @break
+                          @case(3)
+                              <label class="badge badge-info">Shipper</label>
+                              @break
+                          @case(4)
+                              <label class="badge badge-warning">VIP</label>
+                              @break
+                          @default
+                              
+                      @endswitch
                     </td>
-                    <td> 0123456789 </td>
+                    <td> {{$user->phone}} </td>
                     <td> WD-12345 </td>
                   </tr>
-                  <tr>
-                    <td>
-                      <img src="{{ asset('adminTemplate/assets/images/faces/face2.jpg') }}" class="mr-2" alt="image"> Minh Tú
-                    </td>
-                    <td> minhtu2001@gmail.com </td>
-                    <td>
-                      <label class="badge badge-warning">VIP</label>
-                    </td>
-                    <td> 0123452017 </td>
-                    <td> WD-12346 </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <img src="{{ asset('adminTemplate/assets/images/faces/face3.jpg') }}" class="mr-2" alt="image"> Nhật Nam
-                    </td>
-                    <td> greenbook.vku@gmail.com </td>
-                    <td>
-                      <label class="badge badge-info">Shipper</label>
-                    </td>
-                    <td> 0912345123 </td>
-                    <td> WD-12347 </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <img src="{{ asset('adminTemplate/assets/images/faces/face4.jpg') }}" class="mr-2" alt="image"> Hoàng Hải
-                    </td>
-                    <td> hoanghai.max.2lon@gmail.com </td>
-                    <td>
-                      <label class="badge badge-danger">Quản trị viên</label>
-                    </td>
-                    <td> 1234567321 </td>
-                    <td> WD-12348 </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <img src="{{ asset('adminTemplate/assets/images/faces/face1.jpg') }}" class="mr-2" alt="image"> Anh Tuấn
-                    </td>
-                    <td> anhtuandeptrai@gmail.com </td>
-                    <td>
-                      <label class="badge badge-success">Thành viên</label>
-                    </td>
-                    <td> 0123456789 </td>
-                    <td> WD-12345 </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <img src="{{ asset('adminTemplate/assets/images/faces/face2.jpg') }}" class="mr-2" alt="image"> Minh Tú
-                    </td>
-                    <td> minhtu2001@gmail.com </td>
-                    <td>
-                      <label class="badge badge-warning">VIP</label>
-                    </td>
-                    <td> 0123452017 </td>
-                    <td> WD-12346 </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <img src="{{ asset('adminTemplate/assets/images/faces/face3.jpg') }}" class="mr-2" alt="image"> Nhật Nam
-                    </td>
-                    <td> greenbook.vku@gmail.com </td>
-                    <td>
-                      <label class="badge badge-info">Shipper</label>
-                    </td>
-                    <td> 0912345123 </td>
-                    <td> WD-12347 </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <img src="{{ asset('adminTemplate/assets/images/faces/face4.jpg') }}" class="mr-2" alt="image"> Hoàng Hải
-                    </td>
-                    <td> hoanghai.max.2lon@gmail.com </td>
-                    <td>
-                      <label class="badge badge-danger">Quản trị viên</label>
-                    </td>
-                    <td> 1234567321 </td>
-                    <td> WD-12348 </td>
-                  </tr>
+                @endforeach
               </tbody>
             </table>
           </div>

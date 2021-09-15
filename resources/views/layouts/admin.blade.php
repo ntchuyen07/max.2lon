@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+m<!DOCTYPE html>
 <html lang="en">
   <head>
     <!-- Required meta tags -->
@@ -19,7 +19,7 @@
       <!-- partial:partials/_navbar.html -->
       <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
         <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-          <a class="navbar-brand brand-logo" href="index.html"><img src="https://www.codester.com/static/uploads/items/000/017/17176/preview-xl.jpg" alt="logo" /></a>
+          <a class="navbar-brand brand-logo" href="index.html"><img src="https://webneel.com/sites/default/files/images/manual/logo-restaurant/best-restaurant-logo-design%20(32).gif" alt="logo" /></a>
           <a class="navbar-brand brand-logo-mini" href="index.html"><img src="{{ asset('adminTemplate/assets/images/logo-mini.svg') }}" alt="logo" /></a>
         </div>
         <div class="navbar-menu-wrapper d-flex align-items-stretch">
@@ -51,8 +51,8 @@
                 <a class="dropdown-item" href="#">
                   <i class="mdi mdi-cached mr-2 text-success"></i> Activity Log </a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">
-                  <i class="mdi mdi-logout mr-2 text-primary"></i> Signout </a>
+                <a class="dropdown-item" href="{{URL::to('/admin/logout')}}">
+                  <i class="mdi mdi-logout mr-2 text-primary"></i> Logout </a>
               </div>
             </li>
             <li class="nav-item d-none d-lg-block full-screen-link">
@@ -184,7 +184,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="./dashboard">
+              <a class="nav-link" href="{{ URL::to('admin/dashboard') }}">
                 <span class="menu-title">Dashboard</span>
                 <i class="mdi mdi-home menu-icon"></i>
               </a>
@@ -210,7 +210,7 @@
               </div>
             </li>
             <li class="nav-item">
-              <a class="nav-link" data-toggle="collapse" href="#ui-basic-menu" aria-expanded="false" aria-controls="ui-basic">
+              <a class="nav-link" data-toggle="collapse" href="#ui-basic-menu" aria-expanded="false" aria-controls="ui-basic-menu">
                 <span class="menu-title">Thực đơn</span>
                 <i class="menu-arrow"></i>
                 <i class="mdi mdi-food-fork-drink menu-icon"></i>
@@ -230,19 +230,19 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="./management-user">
+              <a class="nav-link" href="{{ URL::to('admin/management-user') }}">
                 <span class="menu-title">Người dùng</span>
                 <i class="mdi mdi-account-box menu-icon"></i>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="./management-questions">
+              <a class="nav-link" href="{{ URL::to('admin/management-questions') }}">
                 <span class="menu-title">Hỏi đáp</span>
                 <i class="mdi mdi-comment-question-outline menu-icon"></i>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="./management-contacts">
+              <a class="nav-link" href="{{ URL::to('admin/management-contacts') }}">
                 <span class="menu-title">Hỗ trợ</span>
                 <i class="mdi mdi-help-circle menu-icon"></i>
               </a>
@@ -255,7 +255,7 @@
               </a>
               <div class="collapse" id="general-pages">
                 <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> <a class="nav-link" href="pages/samples/blank-page.html"> Đặt hàng </a></li>
+                  <li class="nav-item"> <a class="nav-link" href="{{URL::to('admin/management-orders')}}"> Đặt hàng </a></li>
                   <li class="nav-item"> <a class="nav-link" href="pages/samples/login.html"> Đang giao </a></li>
                   <li class="nav-item"> <a class="nav-link" href="pages/samples/register.html"> Đã giao </a></li>
                   <li class="nav-item"> <a class="nav-link" href="pages/samples/error-404.html"> Đã hủy </a></li>
@@ -264,7 +264,13 @@
               </div>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="./management-charts">
+              <a class="nav-link" href="{{ URL::to('admin/management-review') }}">
+                <span class="menu-title">Đánh giá</span>
+                <i class="mdi mdi-star-circle menu-icon"></i>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ URL::to('admin/management-chart') }}">
                 <span class="menu-title">Thống kê</span>
                 <i class="mdi mdi-chart-bar menu-icon"></i>
               </a>
@@ -274,23 +280,23 @@
                 <div class="border-bottom">
                   <h6 class="font-weight-normal mb-3">Quản lý bài viết</h6>
                 </div>
-                <button class="btn btn-block btn-lg btn-gradient-primary mt-4">+ Đăng bài viết</button>
+                <a href="{{ URL::to('admin/post/create')}}" class="btn btn-block btn-lg btn-gradient-primary mt-4">+ Đăng bài viết</a>
               </span>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="./management-posts">
+              <a class="nav-link" href="{{ URL::to('admin/management-posts') }}">
                 <span class="menu-title">Danh sách bài viết</span>
                 <i class="mdi mdi-view-list menu-icon"></i>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="./check-post">
+              <a class="nav-link" href="{{ URL::to('admin/post/check')}}">
                 <span class="menu-title">Kiểm duyệt bài viết</span>
                 <i class="mdi mdi-table-edit menu-icon"></i>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="./management-comments">
+              <a class="nav-link" href="{{ URL::to('admin/post/comment')}}">
                 <span class="menu-title">Bình luận</span>
                 <i class="mdi mdi-comment menu-icon"></i>
               </a>

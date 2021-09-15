@@ -1,0 +1,206 @@
+.image-restaurant {
+    height: 600px;
+}
+.rest1 {
+    border: 20px solid #ffff;
+}
+.rest2 {
+   margin-left: 320px;
+    margin-top: -550px;
+    border: 20px solid #ffff;
+}
+.intro-restaurant {
+    text-align: center;
+    padding: 30px;
+    border: 1px solid rgb(34, 104, 34);
+    border-radius: 30px;
+    margin-right: 50px;
+}
+.image-logo-restaurant {
+    width: 300px;
+}
+.desc-restaurant {
+    font-size: 21px;
+    font-family: "Roboto Slab",sans-serif;
+    padding-bottom: 10px;
+}
+.slogan-restaurant {
+    text-align: center;
+    font-size: 16px;
+    font-family: 'Sofia';
+    font-style: italic;
+    padding-bottom: 10px;
+}
+.introduce-categories {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+.image-category {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.image-item-category {
+    width: 25%;
+    text-align: center;
+    height: 175px;
+}
+.name-item-category {
+    background: #3A424D;
+    width: 25%;
+    text-align: center;
+    height: 175px;
+    font-weight: 500;
+    font-size: 21px;
+    font-family: "Roboto Slab",sans-serif;
+    color: #ffff;
+}
+.intro-category-wrap-top::after {
+    border: 11px solid transparent;
+    border-top-color: #3A424D;
+    content: "";
+    display: block;
+    left: 37%;
+    position: absolute;
+    z-index: 11;
+    margin-top: 85px;
+  }
+  .intro-category-wrap-bottom::after {
+    border: 11px solid transparent;
+    border-bottom-color: #3A424D;
+    content: "";
+    display: block;
+    left: 12%;
+    position: absolute;
+    z-index: 11;
+    margin-top: -107px;
+  }
+  .intro-category-wrap-left::after {
+    border:  11px solid transparent;
+    border-left-color: #3A424D;
+    content: "";
+    display: block;
+    left: 74%;
+    position: absolute;
+    z-index: 11;
+  }
+  .intro-category-wrap-right::after {
+    border:  11px solid transparent;
+    border-right-color: #3A424D;
+    content: "";
+    display: block;
+    left:71.2%;
+    position: absolute;
+    z-index: 11;
+
+  }
+.image-shipper-2 {
+    width: 400px;
+    border-top-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    margin: 20px;
+}
+.image-shipper-1 {
+    margin: 20px;
+    width: 400px;
+    float: right;
+    border-top-right-radius: 50px;
+    border-bottom-left-radius: 50px;
+}
+.infor-shipper-1, .infor-shipper-2 {
+    box-shadow:0px 0px 6px  rgba(0, 0, 0, 0.29);
+    padding: 30px;
+    background: #ffff;
+    z-index: 10;
+}
+.infor-shipper-1 {
+    margin-right: -150px;
+}
+.infor-shipper-2 {
+    margin-left: -150px;
+}
+.label-infor {
+    text-align: center;
+    color: rgb(34, 104, 34);
+    font-family: 'Coiny';
+    font-size: 27px;
+    font-weight: 700;
+    padding-bottom: 20px;
+}
+.text-infor {
+    padding: 10px;
+}
+.job-infor {
+    text-align: center;
+}
+.icon-infor {
+    color: #ffff;
+    background: #87D5E9;
+    padding: 10px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+.text-infor-label {
+    color: #262753;
+    font-weight: 700;
+    font-family: 'Coiny';
+    padding: 10px;
+    margin-left: 70px;
+}
+.infor-slogan {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.contact-restaurant {
+    padding: 50px;
+    text-align: center;
+}
+.extra {
+    padding-left: 34px;
+}
+.icon-contact {
+    color: #ffff;
+    background: rgb(34, 104, 34);
+    padding: 10px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+.text-infor {
+    font-weight: 500;
+    font-family: 'Coiny';
+    padding: 5px;
+    font-size: 17px;
+}
+.label-infor-contact {
+    text-align: center;
+    color: rgb(34, 104, 34);
+    font-family: 'Coiny';
+    font-size: 34px;
+    font-weight: 700;
+    padding-bottom: 20px;
+}
+.image-banner-category {
+    width: 25%;
+    height: 600px;
+}
+.image-banner-product {
+    width: 200px;
+    height: 200px;
+    margin-top: -670px;
+}
+.banner-product {
+    width: 25%;
+    text-align: center;
+}
+.chef-restaurant {
+    padding-left: 50px;
+}
+.fa-check-circle {
+    color: rgb(34, 104, 34);
+    padding-right: 10px;
+}
+.check-intro {
+    font-size: 17px;
+    font-weight: 600;
+    font-family: 'Coiny';
+}

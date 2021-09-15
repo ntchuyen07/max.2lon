@@ -1,15 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../resources/css/contact.css">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-</head>
-<body>
     @extends('layouts.user')
     @section('title','Liên hệ hỗ trợ')
+    @section('style')
+        <link rel="stylesheet" href="{{ asset('assests/css/user/user.contact.css') }}">
+        <link href='https://fonts.googleapis.com/css?family=Sofia' rel='stylesheet'>
+        <link href='https://fonts.googleapis.com/css?family=Roboto Slab' rel='stylesheet'>
+    @endsection
     @section('content')
+        <div class="container-fuild">
+            <div class="big-theme">
+                <div class="big-topic">Liên hệ với chúng tôi</div>
+                <div class="inline"></div>
+                <p class="desc-theme">Gửi khó khăn của bạn - Chúng tôi sẽ giúp đỡ hết mình!</p>
+            </div>
+        </div>
         <div class="container-fuild contact">
             <div class="row">
                 <div class="col-md-4">
@@ -29,25 +32,22 @@
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div id="map" style="width: 100%; height: 400px" ></div>
-                    <!--<div>
-                        <img class="img-xoay" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbK5IYxqZ04qQ61E-YI4VC0tbwXAb66O2vug&usqp=CAU" alt="">
-                    </div>
-                    <div>
-                        <img class="img-zoom" src="https://free.vector6.com/wp-content/uploads/2021/03/0000000088-co-be-dau-bep-phong-cach-chibi-de-thuong-png-3.png">
-                    </div>-->
+                    <div class="topic">TÌM KIẾM NHANH</div>
+                    <div class="under_line"></div>
+                    <div id="map" style="width: 100%; height: 520px; margin-top:40px;" ></div>
                 </div>
                 <div class="col-md-4">
                     <div class="topic">LIÊN LẠC</div>
                     <div class="under_line"></div>
-                    <form action="">
+                    <form id="user-contact-form" action="{{ URL::to('/contact/create') }}" method="POST" >
+                        {{ csrf_field() }}
                         <label for="name">
                             <span>Họ và tên (bắt buộc)</span>
-                            <input type="text" id="name" value="Nguyễn Thị Cẩm Huyền" placeholder="Nhập họ tên của bạn">
+                            <input type="text" name="name" id="name" value="Nguyễn Thị Cẩm Huyền" placeholder="Nhập họ tên của bạn">
                         </label>
                         <label for="email">
                             <span>Email (bắt buộc)</span>
-                            <input type="email" id="email" value="ntchuyen.19it1@vku.udn.vn" placeholder="Nhập Email của bạn">
+                            <input type="email" name="email" id="email" value="ntchuyen.19it1@vku.udn.vn" placeholder="Nhập Email của bạn">
                         </label>
                         <label for="message">
                             <span>Tin nhắn của bạn</span>
@@ -77,7 +77,6 @@
         </script>
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB7ZW0p0ZTdEwpt3ex9-FBrGXuCKBLjaF8&callback=initMap&libraries=&v=weekly&z=200" async></script>
         <script src="../resources/js/contact.js"></script>
+        <script src="{{ asset('assests/js/user/contact.js') }}"></script>
 
     @endsection
-</body>
-</html>
