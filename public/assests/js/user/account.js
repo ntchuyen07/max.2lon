@@ -16,3 +16,14 @@ function openTab(evt, cityName) {
   
   // Get the element with id="defaultOpen" and click on it
   document.querySelector("#defaultOpen").click();
+
+  function readURL(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+            $('.img-change').attr('src', e.target.result);
+        }
+
+        reader.readAsDataURL(input.files[0]);
+    }
+}

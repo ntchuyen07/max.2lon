@@ -7,3 +7,11 @@
 .bg-gradient-danger {
     background: linear-gradient(to right, #f19174, #fc5353) !important;
 }
+.content-post-dashboard {
+    padding: 5px;
+    font-weight: 500;
+    overflow-y: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}

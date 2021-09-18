@@ -6,7 +6,7 @@
     @section('content')
     <div class="container-fuild">
         <div class="big-theme">
-            <div class="big-topic">Đăng bài viết</div>
+            <div class="big-topic">CHIA SẺ BÀI VIẾT</div>
             <div class="inline"></div>
             <p class="desc-theme">Chia sẻ kinh nghiệm của bạn </p>
         </div>

@@ -28,7 +28,9 @@
                       <td>{{$post->title}}</td>
                       <td><img class="img-post" src="{{ asset($post->path) }}" alt=""></td>
                       <td>{{$post->name}}</td>
-                      <td></td>
+                      <td style="text-align: center">
+                        <a href="{{URL::to('admin/post/detail/'.$post->slug)}}"><button type="button" class="btn btn-inverse-info btn-icon"><i class="mdi mdi-border-color"></i></button></a>
+                      </td>
                     </tr>
                 @endforeach
               </tbody>

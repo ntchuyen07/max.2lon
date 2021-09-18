@@ -11,11 +11,19 @@ use App\Models\Image;
 
 class PostController extends Controller
 {
-    function index() {
-        $posts = Post::join('users', 'posts.user_id', 'users.id')
-        ->join('images', 'posts.id', 'images.type_id')
-        ->select('posts.*', 'images.path', 'users.name')
-        ->where('images.type', '=', 'post' )->paginate(8);
+    function index(Request $request) {
+        if (!$request->query('search')) {
+            $posts = Post::orderBy('id', 'desc')->join('users', 'posts.user_id', 'users.id')
+            ->join('images', 'posts.id', 'images.type_id')
+            ->select('posts.*', 'images.path', 'users.name')
+            ->where('images.type', '=', 'post' )->paginate(8);
+        } else {
+            $posts = Post::join('users', 'posts.user_id', 'users.id')
+            ->join('images', 'posts.id', 'images.type_id')
+            ->select('posts.*', 'images.path', 'users.name')
+            ->where('posts.title', 'like', '%'.$request->query('search').'%')
+            ->where('images.type', '=', 'post' )->paginate(8);        
+        }
         return view('user.post.index',compact('posts'));
     }
     function posting() {
@@ -28,8 +36,16 @@ class PostController extends Controller
         ->join('images', 'posts.id', 'images.type_id')
         ->select('posts.*', 'images.path', 'users.name','users.avatar')
         ->where('slug', $slug)->where('images.type', '=', 'post' )->first();
+        $suggests = Post::join('users', 'posts.user_id', 'users.id')
+        ->join('images', 'posts.id', 'images.type_id')
+        ->select('posts.*', 'images.path', 'users.name','users.avatar')
+        ->where('images.type', '=', 'post' )->inRandomOrder()->take(4)->get();
+        $views = Post::join('users', 'posts.user_id', 'users.id')
+        ->join('images', 'posts.id', 'images.type_id')
+        ->select('posts.*', 'images.path', 'users.name','users.avatar')
+        ->where('images.type', '=', 'post' )->orderBy('view', 'desc')->take(4)->get();
         if($post) {
-            return view('user.view-post', compact('post'));
+            return view('user.view-post', compact('post','suggests','views'));
         } else {
             return redirect()->to('list-posts');
         }

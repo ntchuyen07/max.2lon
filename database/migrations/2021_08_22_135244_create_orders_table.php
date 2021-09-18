@@ -23,7 +23,7 @@ class CreateOrdersTable extends Migration
             $table->float('total');
             $table->string('code')->nullable();
             $table->integer('status_id');
-            $table->integer('shipper_id');
+            $table->integer('shipper_id')->nullable();
             $table->timestamps();
         });
     }

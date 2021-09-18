@@ -27,48 +27,37 @@
         <div class="cont">
             <div class="intro-order">
                 <div style="margin-bottom: 15px;"><span class="topic-order">Thông tin nhận hàng</span></div>
-                <div>Người nhận: {{$request->name}}</div>
-                <div>Số điện thoại: {{$request->phone}}</div>
-                <div>Địa chỉ: {{$request->address}}</div>
-                <div>Thời gian giao hàng dự kiến: {{$request->timeorder}}</div>
-                @if ($request->mesage)
-                <div>Lời nhắn: {{$request->mesage}}</div>
+                <div class="information-order"><span class="topic-information-order">Người nhận:</span> {{session('receiver')->name}}</div>
+                <div class="information-order"><span class="topic-information-order">Số điện thoại:</span> {{session('receiver')->phone}}</div>
+                <div class="information-order"><span class="topic-information-order">Địa chỉ:</span> {{session('receiver')->address}}</div>
+                <div class="information-order"><span class="topic-information-order">Thời gian giao hàng dự kiến:</span> {{ \Carbon\Carbon::parse(session('receiver')->timeorder)->format('H:i:s d/m/Y')}}</div>
+                @if (session('receiver')->message!='')
+                <div class="information-order"><span class="topic-information-order">Lời nhắn:</span> {{session('receiver')->message}}</div>
                 @else 
                 @endif
             </div>
             <div class="list-order">
                 <div class="row properties">
                     <div class="col-md-5">Sản phẩm</div>
-                    <div class="col-md-2">Đơn giá</div>
-                    <div class="col-md-3">Số lượng</div>
-                    <div class="col-md-2">Thành tiền</div>
+                    <div class="col-md-2" style="text-align: center">Đơn giá</div>
+                    <div class="col-md-3" style="text-align: center">Số lượng</div>
+                    <div class="col-md-2" style="text-align: center">Thành tiền</div>
                 </div>
-                <div class="row item-product">
-                    <div class="col-md-5 intro-item">
-                        <img class="image-item" src="https://cdn.tgdd.vn/2021/04/content/8-800x450.jpg" alt="">
-                        <div>
-                            <div><span class="name-item-cart">Cút lộn xào me</span></div>
+                @foreach ($carts as $cart)
+                    <div class="row item-product">
+                        <div class="col-md-5 intro-item">
+                            <img class="image-item" src="{{asset($cart->image)}}" alt="">
+                            <div>
+                                <div><span class="name-item-cart">{{$cart->name}}</span></div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-2"><span><sup><ins>đ</ins></sup>20.000</span></div>
-                    <div class="col-md-3">
-                        6
-                    </div>
-                    <div class="col-md-2"><span class="total-item"><sup><ins>đ</ins></sup><b>120.000</b></span></div>
-                </div>
-                <div class="row item-product">
-                    <div class="col-md-5 intro-item">
-                        <img class="image-item" src="http://www.monngonplus.vn/images/1/1-001-mon-trang-mieng-ngon-me-ly-tu-xoai-va-dua_1556782795.jpg" alt="">
-                        <div>
-                            <div><span class="name-item-cart">Panna Cotta Xoài</span></div>
+                        <div class="col-md-2" style="text-align: center"><span><sup><ins>đ</ins></sup>{{number_format($cart->price)}}</span></div>
+                        <div class="col-md-3" style="text-align: center">
+                            {{$cart->number}}
                         </div>
+                        <div class="col-md-2" style="text-align: center"><span class="total-item"><sup><ins>đ</ins></sup><b>{{number_format(($cart->number)*($cart->price))}}</b></span></div>
                     </div>
-                    <div class="col-md-2"><span><sup><ins>đ</ins></sup>30.000</span></div>
-                    <div class="col-md-3">
-                        5
-                    </div>
-                    <div class="col-md-2"><span class="total-item"><sup><ins>đ</ins></sup><b>150.000đ</b></span></div>
-                </div>
+                @endforeach
             </div>
             <div>
                 Chọn voucher:
@@ -83,16 +72,16 @@
                             <div>Khách hàng thanh toán:</div>
                         </div>
                         <div class="col-md-4" style="text-align: right">
-                            <div>250.000đ</div>
+                            <div id='order-all-item-price' >250.000đ</div>
                             <div>20.000đ</div>
-                            <div class="final-price-order"><b>270.000đ</b></div>
-                            <div>270.000đ</div>
+                            <div id="final-price-order"><b>270.000đ</b></div>
+                            <div id='order-total-price'>270.000đ</div>
                         </div>
                     </div>
                     <!--Button xác nhận đơn hàng-->
                     <div>
                         <div class="buttons" >
-                            <a href="#">
+                            <a href="{{URL::to('order/save')}}">
                                 <button class="blob-btn">
                                     ĐẶT HÀNG
                                     <span class="blob-btn__inner">
@@ -123,6 +112,7 @@
         </div>
     </div>
     <script src="../resources/js/carts.js"></script>
+    <script src="{{asset('assests/js/user/cart.js')}}"></script>
 </body>
 </html>
 

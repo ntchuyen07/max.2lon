@@ -20,6 +20,7 @@
     height: 150px;
     clip-path: circle(45.8% at 49% 49%);
     margin-left: 60px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.31);;
 }
 .intro-post {
     margin-top: -20px;
@@ -31,6 +32,9 @@
 }
 .amount{
     float: right;
+    font-family: "Alex Brush";
+    font-weight: 700;
+    font-size: 30px;
 }
 .poster {
     padding-right: 10px;

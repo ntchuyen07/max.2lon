@@ -154,7 +154,9 @@
     border-bottom: 4px solid #538167;
     border-radius: 0;
   }
-  
+  .nav-item {
+    color: #538167;
+  }
   .review-special .row {
     margin: 0;
   }

@@ -12,7 +12,7 @@
             {{ csrf_field() }}
             <div class="form-group">
               <label for="name"><b>Tên sản phẩm (*)</b></label>
-              <input type="text" name="name" class="form-control" id="name" aria-describedby="emailHelp" placeholder="Tên danh mục" required>
+              <input type="text" name="name" class="form-control" id="name" aria-describedby="emailHelp" placeholder="Tên sản phẩm" required>
             </div>
             <div class="form-group">
               <label for="name"><b>Hình ảnh sản phẩm (*)</b></label>

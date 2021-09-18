@@ -47,7 +47,7 @@ button:focus, a:focus {
 }
 
 /* Style the buttons inside the tab */
-.tabs button {
+.tabs a {
     display: block;
     background-color: inherit;
     color: teal;
@@ -62,12 +62,12 @@ button:focus, a:focus {
   }
   
   /* Change background color of buttons on hover */
-  .tabs button:hover {
+  .tabs a:hover {
     background-color: #ddd;
   }
   
   /* Create an active/current "tab button" class */
-  .tabs button.active {
+  .tabs a.active {
     background-color: white;
     color: black;
   }
@@ -234,4 +234,84 @@ a:hover {
   border: 0.1px solid rgb(19, 53, 206);
   padding: 20px;
   margin-top: 10px;
+}
+/*Phần đơn hàng*/
+.order-item {
+  background: #ffff;
+  margin-left: 30px;
+  margin-bottom: 50px;
+  margin-right: 30px;
+  border-radius: 10px;
+  border: 0.3px solid #F9F9F7;
+  box-shadow: 0 0 6px rgba(0,0,0,0.059);
+}
+.header-order-item {
+  /*background: #F3F6FB;*/
+  background: #f8f7f5;
+  width: 100%;
+  padding: 10px;
+}
+.code-order {
+  font-weight: 700;
+}
+.image-order {
+  width: 150px;
+  height: 150px;
+  padding: 20px;
+}
+.status-order {
+  color: rgb(34, 104, 34);
+  font-weight: 700;
+  font-family: "Roboto Slab",sans-serif;
+  float: right;
+  padding-right: 5px;
+}
+.rate-order {
+  color: red;
+  float: right;
+}
+.icon-price-order {
+  background-color: rgb(34, 104, 34);
+  color: white;
+  padding: 10px;
+  border-radius: 50%;
+  width: 30px;
+  height: 34px;
+  margin-right: 10px;
+}
+.price-total-order {
+  color: rgb(34, 104, 34);
+  font-size: 30px;
+  font-weight: 600;
+}
+.name-product-order {
+  font-size: 24px;
+  font-weight: 600;
+  font-family: "Roboto Slab",sans-serif;
+}
+.unit-price-order {
+  color: #505f75;
+}
+.information-product-order {
+  padding-left: 10px;
+}
+.total-product-order {
+  color: red;
+  float: right;
+  padding-right: 50px;
+}
+.more-order, .more-review-order {
+  padding: 10px;
+  float: right;
+  margin-left: 30px;
+  border-radius: 10px;
+}
+.more-order {
+  color: white;
+  background: #538167;
+}
+.more-review-order {
+  background: #ffff;
+  color: #538167;
+  border: 0.1px solid #505f75;
 }

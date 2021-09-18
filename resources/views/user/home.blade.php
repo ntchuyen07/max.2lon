@@ -76,20 +76,20 @@
                             <div class="item-menu">
                                 <div class="name">
                                     <div class="name-item">Bánh ngọt dâu tây</div>
-                                    <div class="price-item">30.000 <sup><ins>đ</ins></sup></div>
+                                    <div class="price-item">40.000 <sup><ins>đ</ins></sup></div>
                                 </div>
                                 <img class="img-menu-item" src="../public/assests/images/banner/food10.png" alt="">
                             </div>
                             <div class="item-menu">
                                 <div class="name">
                                     <div class="name-item">Bò bít tết</div>
-                                    <div class="price-item">30.000 <sup><ins>đ</ins></sup></div>
+                                    <div class="price-item">200.000 <sup><ins>đ</ins></sup></div>
                                 </div>
                                 <img class="img-menu-item" src="../public/assests/images/banner/food4.png" alt="">
                             </div>
                             <div class="item-menu">
                                 <div class="name">
-                                    <div class="name-item">Bánh ngọt dâu tây</div>
+                                    <div class="name-item">Chocolate Dâu</div>
                                     <div class="price-item">30.000 <sup><ins>đ</ins></sup></div>
                                 </div>
                                 <img class="img-menu-item" src="../public/assests/images/banner/food11.png" alt="">
@@ -105,29 +105,29 @@
                         <div class="col-md-6">
                             <div class="item-menu">
                                 <div class="name">
-                                    <div class="name-item">Bánh ngọt dâu tây</div>
-                                    <div class="price-item">30.000 <sup><ins>đ</ins></sup></div>
+                                    <div class="name-item">Bánh kem ốc quế</div>
+                                    <div class="price-item">50.000 <sup><ins>đ</ins></sup></div>
                                 </div>
                                 <img class="img-menu-item" src="../public/assests/images/banner/food6.png" alt="">
                             </div>
                             <div class="item-menu">
                                 <div class="name">
-                                    <div class="name-item">Bánh ngọt dâu tây</div>
-                                    <div class="price-item">30.000 <sup><ins>đ</ins></sup></div>
+                                    <div class="name-item">Cá hồi nướng bạc</div>
+                                    <div class="price-item">200.000 <sup><ins>đ</ins></sup></div>
                                 </div>
                                 <img class="img-menu-item" src="../public/assests/images/banner/food7.png" alt="">
                             </div>
                             <div class="item-menu">
                                 <div class="name">
-                                    <div class="name-item">Bánh ngọt dâu tây</div>
-                                    <div class="price-item">30.000 <sup><ins>đ</ins></sup></div>
+                                    <div class="name-item">Cá hồi sốt cay</div>
+                                    <div class="price-item">150.000 <sup><ins>đ</ins></sup></div>
                                 </div>
                                 <img class="img-menu-item" src="../public/assests/images/banner/food9.png" alt="">
                             </div>
                             <div class="item-menu">
                                 <div class="name">
-                                    <div class="name-item">Bánh ngọt dâu tây</div>
-                                    <div class="price-item">30.000 <sup><ins>đ</ins></sup></div>
+                                    <div class="name-item">Salad Bắp non</div>
+                                    <div class="price-item">50.000 <sup><ins>đ</ins></sup></div>
                                 </div>
                                 <img class="img-menu-item" src="../public/assests/images/banner/food8.png" alt="">
                             </div>
@@ -137,7 +137,7 @@
             </div>
         </div>
         <div class="btn-wrap">
-            <a href="{{ URL::to('/menu') }}" class="link-more"><span class="text-more"> Xem tất cả</span><span class="icon"><i class="fas fa-arrow-right"></i></span></a>
+            <a href="{{ URL::to('/menu/0') }}" class="link-more"><span class="text-more"> Xem tất cả</span><span class="icon"><i class="fas fa-arrow-right"></i></span></a>
         </div>
     </div>
     <div class="container-fuild content-center" style="margin-top: -70px">
@@ -220,9 +220,12 @@
                             <div class="name-review-product">Ballotine gan ngỗng</div>
                             <div class="desc-review-product">Món Ballotine truyền thống là món được làm từ đùi các loại gia cầm được nhồi thịt và gia vị, nấu bằng các om hoặc hầm. Món Ballotine hiện đại có thể dùng các bộ phận khác như ức, gan, mà không nhất thiết phải là thịt gia cầm. </div>
                             <div class="buttons" style="margin-right: -70px;">
-                                <a href="#">
+                                <form class="add-cart-form" method="POST">
+                                    {{ csrf_field() }}
+                                    <input type="text" name="number" value="1" id="" style="display: none;">
+                                    <input type="text" name="product_id" value="6" id="" style="display: none;">
                                     <button class="blob-btn">
-                                        100.000 - MUA NGAY
+                                        THÊM VÀO GIỎ HÀNG
                                         <span class="blob-btn__inner">
                                           <span class="blob-btn__blobs">
                                             <span class="blob-btn__blob"></span>
@@ -232,7 +235,8 @@
                                           </span>
                                         </span>
                                     </button>
-                                </a>
+                                </form>
+                                    
                                 <br/>
                               
                               <svg style="display: none" xmlns="http://www.w3.org/2000/svg" version="1.1">
@@ -306,6 +310,19 @@
             </div> 
         </div>
     </div>
+    <button id="open-modal-btn" type="button" class="btn d-none" data-toggle="modal" data-target="#exampleModal">Thêm mới</button>
+        <div class="modal" id="exampleModal" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="alert alert-success alert-dismissible fade show mb-0" role="alert">
+                <strong id="model-title" >Thêm sản phẩm vào giỏ hàng thành công!</strong>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+            </div>
+            </div>
+        </div>
     <script>
         $(document).ready(function(){
             $(".owl-carousel").owlCarousel();
@@ -330,4 +347,5 @@
         });
 
     </script>
+    <script src="{{asset('assests/js/user/add-to-cart.js')}}"></script>
 @endsection

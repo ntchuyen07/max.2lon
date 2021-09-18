@@ -48,7 +48,7 @@
                       {{ $product->discount }}
                     </td>
                     <td>
-                      <button type="button" class="btn btn-inverse-info btn-icon"><i class="mdi mdi-eraser-variant"></i></button>
+                      <a href="{{URL::to('admin/product/edit/'.$product->id)}}"><button type="button" class="btn btn-inverse-info btn-icon"><i class="mdi mdi-eraser-variant"></i></button></a>
                     </td>
                     <td></td>
                     <td><button type="button" class="btn btn-inverse-danger btn-icon"><i class="mdi mdi-delete-forever"></i></button></td>

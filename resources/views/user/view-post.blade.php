@@ -25,7 +25,7 @@
                             <img class="user-post" src="{{asset($post->avatar)}}">
                         </div>
                         <div class="intro-post">
-                            <span class="poster"><i class="fas fa-user-alt"></i>  Đăng tải bởi: <b> {{$post->name}}</b></span><span class="time-posting"><i class="fas fa-clock"></i>  Vào lúc:<b> {{$post->created_at ->format('H:i:s d-m-Y')}}</b></span><span class="amount">{{$post->view}} lượt xem</span>
+                            <span class="poster"><i class="fas fa-user-alt"></i>  Đăng tải bởi: <b> {{$post->name}}</b></span><span class="time-posting"><i class="fas fa-clock"></i>  Vào lúc:<b> {{$post->created_at ->format('H:i:s d-m-Y')}}</b></span><span class="poster" style="float: right;">{{$post->view}} lượt xem</span>
                         </div>
                         <div class="title-post">
                             {{$post->title}}
@@ -200,44 +200,19 @@
                         <div class="topic">Bài viết gợi ý
                             <div class="under_line"></div>
                         </div>
-                        <div>
-                            <a href=""  class="row item-post">
-                                <div class="col-md-4">
-                                    <img class="img-suggest" src="https://i.pinimg.com/originals/f7/c3/87/f7c3871f0b1bd5f9b63f67c067f835a4.jpg" alt="">
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="title-suggest">Gỏi cuốn thịt gà chấm mắm me - ngon không thể cưỡng! Đơn giản dễ làm</div>
-                                    <div class="time-suggest"><i class="fas fa-clock"></i>  06/08/2021  <i class="fas fa-user-alt"></i>  Administrator</div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="row item-post">
-                            <div class="col-md-4">
-                                <img class="img-suggest" src="https://vnn-imgs-f.vgcloud.vn/2019/05/22/10/cach-chon-rau-cu-qua-sach-tuoi-ngon-khong-ngam-doc.jpg">
+                        @foreach ($suggests as $suggest)
+                            <div>
+                                <a href="{{URL::to('/post/'.$suggest->slug)}}"  class="row item-post">
+                                    <div class="col-md-4">
+                                        <img class="img-suggest" src="{{asset($suggest->path)}}" alt="">
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="title-suggest">{{$suggest->title}}</div>
+                                        <div class="time-suggest"><i class="fas fa-eye"></i>  {{$suggest->view}}  <i class="fas fa-user-alt" style="margin-left: 10px"></i>  {{$suggest->name}}</div>
+                                    </div>
+                                </a>
                             </div>
-                            <div class="col-md-8">
-                                <div class="title-suggest">Mách bạn cách lựa chọn rau củ tươi ngon</div>
-                                <div class="time-suggest"><i class="fas fa-clock"></i>  06/08/2021  <i class="fas fa-user-alt"></i>  Administrator</div>
-                            </div>
-                        </div>
-                        <div class="row item-post">
-                            <div class="col-md-4">
-                                <img class="img-suggest" src="https://nhahang37hungvuong.com/wp-content/uploads/2020/10/hai-san-hau-nuong-mo-hanh.jpg">
-                            </div>
-                            <div class="col-md-8">
-                                <div class="title-suggest">Hàu nướng mỡ hành</div>
-                                <div class="time-suggest"><i class="fas fa-clock"></i>  06/08/2021  <i class="fas fa-user-alt"></i>  Administrator</div>
-                            </div>
-                        </div>
-                        <div class="row item-post">
-                            <div class="col-md-4">
-                                <img class="img-suggest" src="https://photo-cms-baonghean.zadn.vn/w607/Uploaded/2021/nkdkswkqoc/201704/original/images1869169_muc_nhay_luoc.jpg">
-                            </div>
-                            <div class="col-md-8">
-                                <div class="title-suggest">Mực hấp gừng thơm lừng nức mũi</div>
-                                <div class="time-suggest"><i class="fas fa-clock"></i>  06/08/2021  <i class="fas fa-user-alt"></i>  Administrator</div>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                     <div class="tags-post">
                         <div class="topic">Tags
@@ -264,44 +239,19 @@
                         <div class="topic">Phổ biến nhất
                             <div class="under_line"></div>
                         </div>
-                        <div>
-                            <a href=""  class="row item-post">
-                                <div class="col-md-4">
-                                    <img class="img-suggest" src="https://jes.edu.vn/wp-content/uploads/2020/05/bento-4.jpg">
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="title-suggest">Làm cơm Bento cho bé bữa trưa vừa ngon lại an toàn tại trường</div>
-                                    <div class="time-suggest"><i class="fas fa-clock"></i>  06/08/2021  <i class="fas fa-user-alt"></i>  Administrator</div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="row item-post">
-                            <div class="col-md-4">
-                                <img class="img-suggest" src="https://rockit.vn/wp-content/uploads/2018/09/cach-lam-sua-chua-hoa-qua.jpg" alt="">
+                        @foreach ($views as $view)
+                            <div>
+                                <a href="{{URL::to('/post/'.$view->slug)}}"  class="row item-post">
+                                    <div class="col-md-4">
+                                        <img class="img-suggest" src="{{asset($view->path)}}" alt="">
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="title-suggest">{{$view->title}}</div>
+                                        <div class="time-suggest"><i class="fas fa-eye"></i>  {{$view->view}}  <i class="fas fa-user-alt" style="margin-left: 10px"></i>  {{$suggest->name}}</div>
+                                    </div>
+                                </a>
                             </div>
-                            <div class="col-md-8">
-                                <div class="title-suggest">Công thức làm sữa chua trái cây đơn giản</div>
-                                <div class="time-suggest"><i class="fas fa-clock"></i>  06/08/2021  <i class="fas fa-user-alt"></i>  Administrator</div>
-                            </div>
-                        </div>
-                        <div class="row item-post">
-                            <div class="col-md-4">
-                                <img class="img-suggest" src="https://thue.today/media/images/upload/B%C3%A0i%20Vi%E1%BA%BFt/Nha%20hang%20-%20Khach%20san/pha%20ch%E1%BA%BF%20cocktail%20t%E1%BA%A1i%20nh%C3%A0.jpg">
-                            </div>
-                            <div class="col-md-8">
-                                <div class="title-suggest">Công thức pha chế Cocktail đơn giản tại nhà</div>
-                                <div class="time-suggest"><i class="fas fa-clock"></i>  06/08/2021  <i class="fas fa-user-alt"></i>  Administrator</div>
-                            </div>
-                        </div>
-                        <div class="row item-post">
-                            <div class="col-md-4">
-                                <img class="img-suggest" src="https://i.pinimg.com/originals/f7/c3/87/f7c3871f0b1bd5f9b63f67c067f835a4.jpg" alt="">
-                            </div>
-                            <div class="col-md-8">
-                                <div class="title-suggest">Gỏi cuốn thịt gà chấm mắm me</div>
-                                <div class="time-suggest"><i class="fas fa-clock"></i>  06/08/2021  <i class="fas fa-user-alt"></i>  Administrator</div>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                     <div class="tags-post">
                         <div class="topic">
@@ -309,7 +259,9 @@
                             <div class="under_line"></div>
                         </div>
                         <div>
-                            <input type="text" placeholder=" Search..." class="in-search">
+                            <form action="{{URL::to('/list-posts')}}" method="GET">
+                                <input type="text" placeholder=" Search..." class="in-search" name="search">
+                            </form>
                         </div>
                     </div>
                 </div>

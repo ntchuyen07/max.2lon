@@ -19,7 +19,7 @@ class ContactController extends Controller
         // lấy contact theo nhiều điều kiện
         //and:where->where, or: where->orWhere
         // ngoài ra có thể where like, where >
-        $contacts = Contact::paginate(15);
+        $contacts = Contact::orderBy('id','desc')->paginate(15);
         return view('admin.contact.index',compact('contacts'));
     }
     function contactReply($id) {

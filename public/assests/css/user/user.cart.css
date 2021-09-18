@@ -21,6 +21,11 @@
 .intro-item {
     display: flex;
     align-items: center;
+    color: #000000;
+}
+.intro-item:hover {
+    text-decoration: none;
+    color: rgb(34, 104, 34);
 }
 .image-item {
     width: 80px;
@@ -32,6 +37,11 @@
     font-weight: 500;
     font-size: 18px;
     margin-left: 20px;
+}
+.name-item-cart {
+    font-size: 17px;
+    font-weight: 600;
+    font-family: "Roboto Slab",sans-serif;
 }
 .del-item {
     color: #72aac9;
@@ -54,52 +64,41 @@
     display:inline-flex;
     white-space:nowrap;
     vertical-align:top;
-    margin-top: -10px;
+    background: rgb(34, 104, 34);
+    text-align: center;
+    padding: 5px;
+    border-radius: 10px;
 }
 .is-form {
     overflow:hidden;
     position:relative;
-    background-color:#f9f9f9;
-    height:2.2rem;
+    background-color:#ffff;
+    height:1.9rem;
     width:1.9rem;
     padding:0;
+    cursor: pointer;
+    color: rgb(34, 104, 34);
     text-shadow:1px 1px 1px #fff;
-}
-.is-form {
-    overflow:hidden;
-    position:relative;
-    background-color:#f9f9f9;
-    height:2.2rem;
-    width:1.9rem;
-    padding:0;
-    text-shadow:1px 1px 1px #fff;
-    border:1px solid #ddd;
+    border:none;
+    border-radius: 10px;
 }
 .is-form:focus,.input-text:focus {
     outline:none;
 }
-.is-form.minus {
-    border-radius:4px 0 0 4px;
-}
-.is-form.plus {
-    border-radius:0 4px 4px 0;
-}
 .input-qty {
-    background-color:#fff;
-    height:2.2rem;
+    background: rgb(34, 104, 34);
+    height:1.9rem;
     text-align:center;
     font-size:1rem;
     display:inline-block;
     vertical-align:top;
     margin:0;
-    border-top:1px solid #ddd;
-    border-bottom:1px solid #ddd;
     border-left:0;
     border-right:0;
     padding:0;
-    padding-left: 10px;
-    padding-right: 10px;
     outline: none;
+    border: none;
+    color: #ffff;
 }
 .input-qty::-webkit-outer-spin-button,.input-qty::-webkit-inner-spin-button {
     -webkit-appearance:none;
@@ -210,6 +209,7 @@
     font-family: 'Nunito', sans-serif;
   }
   .intro-order {
+      margin-top: 30px;
       padding: 20px;
       border: 0.2px solid rgb(34, 104, 34);
       border-radius: 10px;
@@ -221,7 +221,13 @@
       padding-bottom: 10px;
       border-bottom: 2px solid rgb(34, 104, 34);
   }
-  .final-price-order {
+  #final-price-order {
     color: red;
+  }
+  .topic-information-order {
+      font-weight: 700;
+  }
+  .information-order {
+      padding-bottom: 10px;
   }
   

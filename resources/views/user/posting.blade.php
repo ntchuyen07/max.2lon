@@ -1,12 +1,12 @@
 @extends('layouts.user')
 @section('title','Đăng bài viết')
 @section('style')
-<link rel="stylesheet" href="{{ asset('assests/css/admin/admin.post.css') }}">
+<link rel="stylesheet" href="{{ asset('assests/css/user/user.post.css') }}">
 @endsection
 @section('content')
 <div class="container-fuild">
     <div class="big-theme">
-        <div class="big-topic">Đăng bài viết</div>
+        <div class="big-topic">Chia sẻ bài viết</div>
         <div class="inline"></div>
         <p class="desc-theme">Chia sẻ kinh nghiệm của bạn </p>
     </div>
@@ -15,22 +15,22 @@
         <div class="row">
             <div class="col-md-8 mypost">
                 <form action="{{URL::to('/post/save')}}" method="POST" enctype="multipart/form-data">
+                    <div>
+                        <label for="title">
+                            <span>Hình ảnh minh họa</span>
+                            <div class="img-illustration">
+                                <img class="image-post" src="{{asset('/assests/images/banner/background_post.jpg')}}" alt="">
+                                <div>
+                                    <input type="file" name="image" id="image" onchange="readURL(this)" accept="image/*">
+                                </div>
+                            </div>
+                        </label>
+                    </div>
                     {{ csrf_field() }}
                     <div>
                         <label for="title">
                             <span>Tiêu đề bài viết</span>
                             <input class="input" type="text" name="title" id="title" placeholder="Nhập tiêu đề cho bài viết của bạn">
-                        </label>
-                    </div>
-                    <div>
-                        <label for="title">
-                            <span>Hình ảnh minh họa</span>
-                            <div class="img-illustration">
-                                <img class="image-post" src="https://icons.iconarchive.com/icons/janosch500/tropical-waters-folders/256/Photos-icon.png" alt="">
-                                <div>
-                                    <input type="file" name="image" id="image" onchange="readURL(this)" accept="image/*">
-                                </div>
-                            </div>
                         </label>
                     </div>
                     <div>

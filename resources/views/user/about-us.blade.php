@@ -70,12 +70,6 @@
         </div>
     </div>
 </div>
-    <div class="container-fuild cont-cart">
-        <div class="category">
-            <p class="text-desc">-Người mang sứ mệnh-</p>
-            <p><span class="text-about-us">ĐỘI NGŨ SHIPPER</span></p>
-        </div>
-    </div>
     <div class="container">
         <div class="d-flex align-items-center justify-content-center">
             <div class="infor-shipper-1 col-md-6">
@@ -123,6 +117,56 @@
             </div>
             <div class="banner-product">
                 <img src="{{asset('assests/images/banner/list-product4.png')}}" alt="" class="image-banner-product animate__slow">
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="category">
+            <img src="{{asset('assests/images/banner/chef-review.png')}}" alt="" class="image-chef-review">
+            <div class="text-desc">-Chia sẻ của đầu bếp-</div>
+        </div>
+        <div class="d-flex align-items-center justify-content-center">
+            <div class="col-md-6">
+                <div class="share-about-right">
+                    <div class="share-topic-text">Không bỏ bữa sáng</div>
+                    <div>Bữa sáng được các chuyên gia nhận định là một bữa chính quan trọng nhất đối với mỗi người. Một bữa sáng thích hợp sẽ tạo được điều kiện thuận lợi khởi động cho một ngày mới, nạp năng lượng trong cả ngày làm việc và học tập.</div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <img src="{{asset('assests/images/banner/review-breakfast.png')}}" alt="" class="image-chef-review">
+            </div>
+        </div>
+        <div class="d-flex align-items-center justify-content-center">
+            <div class="col-md-6">
+                <img src="{{asset('assests/images/banner/review-vegetable.png')}}" alt="" class="image-chef-review">
+            </div>
+            <div class="col-md-6">
+                <div class="share-about-left">
+                    <div class="share-topic-text">Ăn nhiều rau xanh</div>
+                    <div>Tiêu thụ rau xanh hàng ngày sẽ giúp tăng cường thị lực, kiểm soát cân nặng, ngăn ngừa ung thư và phòng chống các vấn đề về tim mạch.</div>
+                </div>
+            </div>
+        </div>
+        <div class="d-flex align-items-center justify-content-center">
+            <div class="col-md-6">
+                <div class="share-about-right">
+                    <div class="share-topic-text">Bổ sung trái cây</div>
+                    <div>Ăn trái cây một giờ trước bữa ăn có tác dụng giảm béo và giúp tiêu hóa có hiệu quả nhất. Trong trái cây có chứa chất đường, cơ thể dễ dàng hấp thu để bổ sung năng lượng, hơn nữa các chất xơ trong trái cây cơ thể không hấp thụ được giúp tạo cảm giác no, đó chính là bí quyết giảm béo khi dùng trái cây trước bữa ăn.</div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <img src="{{asset('assests/images/banner/review-fruit.png')}}" alt="" class="image-chef-review">
+            </div>
+        </div>
+        <div class="d-flex align-items-center justify-content-center">
+            <div class="col-md-6">
+                <img src="{{asset('assests/images/banner/review-water.png')}}" alt="" class="image-chef-review">
+            </div>
+            <div class="col-md-6">
+                <div class="share-about-left">
+                    <div class="share-topic-text">Hai lít nước mỗi ngày</div>
+                    <div>Hầu hết chúng ta đều hiểu tầm quan trọng của việc giữ cơ thể đủ nước, đặc biệt vào các tháng hè nóng bức. Với những đặc tính như dễ kiếm, rẻ tiền và không chứa calo, nước có tác dụng vô cùng lớn trong việc giữ cơ thể của chúng ta khoẻ mạnh.</div>
+                </div>
             </div>
         </div>
     </div>

@@ -57,4 +57,55 @@ class ProductController extends Controller
         Session::put('product-status', 'Thêm mới sản phẩm thành công');
         return redirect()->back();
     }
+    function edit($id)
+    {
+        $product = Product::where('id', '=', $id)->first();
+        $images = Image::where('type', '=', 'product')->where('type_id', '=', $product->id)->get();
+        $categories = Category::all();
+        return view('admin.product.edit',compact('product','images','categories'));
+    }
+
+    function update(Request $request)
+    {
+        $product = Product::where('id', '=', $request->id)->first();
+        if ($request->name) {
+            $product->name = $request->name;
+            $product->slug = Str::slug($request->name, '-') .now();
+        }
+        if ($request->description) {
+            $product->description = $request->description;
+        }
+        if ($request->price) {
+            $product->price = $request->price;
+        }
+        if ($request->amount) {
+            $product->amount = $request->amount;
+        }
+        if ($request->category_id) {
+            $product->category_id = $request->category_id;
+        }
+        if($request->discount) $product->discount = $request->discount;
+        if($request->hasFile('image')) {
+            $product_images = Image::where('type', '=', 'product')->where('type_id', '=', $product->id)->get();
+            foreach ($product_images as $image) {
+                $image->delete();
+            }
+
+            $images = $request->image;
+            foreach ($images as $item) {
+                // item là đối tượng file đc tải lên
+                $file = $item;
+                $file->move('store/products', $file->getClientOriginalName());
+                // image là đối tượng lưu vào csdl
+                $image = new Image();       
+                $image->path = 'store\\products\\' .$file->getClientOriginalName();
+                $image->type = 'product';
+                $image->type_id = $product->id;
+                $image->save();
+            }
+        }
+        $product->save();
+        Session::put('product-status', 'Cập nhật thông tin sản phẩm thành công');
+        return redirect()->to('admin/management-products');
+    }
 }

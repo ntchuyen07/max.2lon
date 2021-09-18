@@ -43,11 +43,11 @@
                         {{ csrf_field() }}
                         <label for="name">
                             <span>Họ và tên (bắt buộc)</span>
-                            <input type="text" name="name" id="name" value="Nguyễn Thị Cẩm Huyền" placeholder="Nhập họ tên của bạn">
+                            <input type="text" name="name" id="name" value="{{session('user')->name}}" placeholder="Nhập họ tên của bạn">
                         </label>
                         <label for="email">
                             <span>Email (bắt buộc)</span>
-                            <input type="email" name="email" id="email" value="ntchuyen.19it1@vku.udn.vn" placeholder="Nhập Email của bạn">
+                            <input type="email" name="email" id="email" value="{{session('user')->email}}" placeholder="Nhập Email của bạn">
                         </label>
                         <label for="message">
                             <span>Tin nhắn của bạn</span>

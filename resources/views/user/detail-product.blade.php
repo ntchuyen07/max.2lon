@@ -5,77 +5,95 @@
     @endsection
     @section('content')
         <div class="container-fuild detail-form">
-            <div class="row">
+            <div class="row d-flex align-items-center justify-content-center">
                 <div class="col-md-4">
-                    <div class="slide-img">
-                        @foreach ($images as $index=>$image)
-                        <div class="image-slide">
-                            <div class="number-slide">{{$index+1}}/{{$images->count()}}</div>
-                            <img class="image-product" src="{{asset($image->path)}}" alt="">
-                        </div>
-                        @endforeach
-                        <a class="prev" onclick="plusSlides(-1)"><span class="text-pagi">❮</span></a>
-                        <a class="next" onclick="plusSlides(1)"><span class="text-pagi">❯</span></a>
-                        <div class="row slideshow">
-                            @foreach ($images as $index=>$image)
-                                <div class="list-image">
-                                    <img class="item-image cursor" onclick="currentSlide({{$index+1}})" src="{{asset($image->path)}}" alt="">
-                                </div>
-                            @endforeach
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-5">
                     <div class="intro-product">
                         <div class="name-product">{{$product->name}}</div>
                         <div class="statistics">
                             <div class="rate-product">
-                                <span class="aver">5.0</span>
                                 <span class="fas fa-star"></span>
                                 <span class="fas fa-star"></span>
                                 <span class="fas fa-star"></span>
                                 <span class="fas fa-star"></span>
                                 <span class="fas fa-star"></span>
                             </div>
-                            <div class="review-product"><span class="number">100</span> Đánh giá</div>
-                            <div class="sold-product"><span class="number">145</span> Đã bán</div>
                         </div>
-                        <div class="price-product"><sup><ins>đ</ins></sup> {{$product->price}}.000</div>
-                        <div class="amount-product">
-                            <span>Số lượng:</span>
-                            <div class="buttons_added">
-                                <input class="minus is-form" type="button" value="-">
-                                <input aria-label="quantity" class="input-qty" max="{{$product->amount}}" min="1" name="" type="number" value="1">
-                                <input class="plus is-form" type="button" value="+">
+                        <div class="description-product">{!!$product->description!!}</div>
+                        <form class="add-cart-form" method="POST">
+                            <div class="d-flex align-items-center justify-content-center">
+                                <div class="col-md-6 price-product" style="border-right:2px solid rgb(182, 180, 180)"><sup><ins>đ</ins></sup> {{number_format($product->price)}}</div>
+                                    <div class="buttons_added">
+                                        <input type="text" name="product_id" value="{{$product->id}}" style="display: none">
+                                        {{ csrf_field() }}
+                                        <input class="minus is-form " style="cursor: pointer" type="button" value="-">
+                                        <input aria-label="quantity" class="input-qty" max="{{$product->amount}}" min="1" name="number" type="number" value="1">
+                                        <input class="plus is-form " style="cursor: pointer" type="button" value="+">
+                                    </div>
                             </div>
-                            <span class="still-in-stock"><em> (Có sẵn {{$product->amount}} sản phẩm)</em></span>
-                        </div>
-                        <div class="add-product">
-                            <button class="add-cart" >THÊM VÀO GIỎ HÀNG</button>
-                            <button class="add-order">MUA NGAY</button>
-                        </div>
+                            <div class="buttons">
+                                    <button class="blob-btn" type="submit">
+                                        Thêm vào giỏ hàng
+                                        <span class="blob-btn__inner">
+                                          <span class="blob-btn__blobs">
+                                            <span class="blob-btn__blob"></span>
+                                            <span class="blob-btn__blob"></span>
+                                            <span class="blob-btn__blob"></span>
+                                            <span class="blob-btn__blob"></span>
+                                          </span>
+                                        </span>
+                                    </button>
+                                <br/>       
+                              <svg style="display: none" xmlns="http://www.w3.org/2000/svg" version="1.1">
+                                <defs>
+                                  <filter id="goo">
+                                    <feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="10"></feGaussianBlur>
+                                    <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 21 -7" result="goo"></feColorMatrix>
+                                    <feBlend in2="goo" in="SourceGraphic" result="mix"></feBlend>
+                                  </filter>
+                                </defs>
+                              </svg>
+                            </div>
+                        </form>
                     </div>
                 </div>
-                <div class="col-md-3">
-                    <div class="transport">
-                        <div>
-                            <img class="img-shipper" src="{{ asset('assests/images/banner/shipper.jpg') }}" alt="">
+                <div class="slide-img col-md-8 d-flex align-items-center justify-content-center">
+                    <div class="col-md-6" style="text-align: center">
+                        @foreach ($images as $index=>$image)
+                        <div class="image-slide">
+                            <img class="image-product" src="{{asset($image->path)}}" alt="">
                         </div>
-                        <div class="slogan">Giao hàng tận tay, <br> ngay nơi bạn ở</div>
-                        <div class="ship-infor">
-                            <div class="txt-ship">Miễn phí vận chuyển:</div>
-                            <ol>
-                                <li><em>Phường 1, Đông Hà</em></li>
-                                <li><em>Thanh An, Cam Lộ</em></li>
-                                <li><em>Cam Thủy, Cam Lộ</em></li>
-                                <li><em>Hóa đơn trên 1.000.000 <sup>đ</sup></em></li>
-                            </ol>
-                            <div class="txt-ship">Ngoài các khu vực trên:</div>
-                            <div class="txt-ship"><em>10.000 <sup>đ</sup> - 30.000 <sup>đ</sup></em></div>
+                        @endforeach
+                        <div class="d-flex align-items-center justify-content-center btn-next">
+                            <a class="prev" style="cursor: pointer" onclick="plusSlides(-1)"><i class="fas fa-arrow-left"></i></a>
+                            <a class="next" style="cursor: pointer" onclick="plusSlides(1)"><i class="fas fa-arrow-right"></i></a>
                         </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="slideshow">
+                            @foreach ($images as $index=>$image)
+                                @if ($index==0)
+                                    <div class="list-image">
+                                        <div class="home-review-food-left d-flex home-review-food-1 food-detail-slide">
+                                            <div><img class="image-review-food item-image cursor" onclick="currentSlide({{$index+1}})" src="{{asset($image->path)}}" alt=""></div>
+                                            <div class="name-review-food">{{$product->name}} {{$index+1}}</div>
+                                        </div>
+                                    </div>
+                                @else
+                                <div class="list-image">
+                                    <div class="home-review-food-left d-flex home-review-food-3 food-detail-slide">
+                                        <div><img class="image-review-food item-image cursor" onclick="currentSlide({{$index+1}})" src="{{asset($image->path)}}" alt=""></div>
+                                        <div class="name-review-food">{{$product->name}} {{$index+1}}</div>
+                                    </div>
+                                </div>
+                                @endif
+                            @endforeach
+                        </div>
+                    </div>
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="container-fuild form-more-infor">
             <div class="row extends-intro">
                 <div class="col-md-9">
                     <div class="row">
@@ -420,17 +438,36 @@
                                     <div class="intro-item">
                                         <div class="name-suggest">{{$suggest->name}}</div>
                                         <div class="desc-suggest">{!!$suggest->description!!}</div>
-                                        <div class="name-suggest price-suggest"><sup><ins>đ</ins></sup> {{$suggest->price}}.000</div>
+                                        <div class="name-suggest price-suggest"><sup><ins>đ</ins></sup> {{number_format($suggest->price)}}</div>
                                     </div>
                                 </a>
                             </div>
                             <div style="margin-top: -50px;text-align: center">
-                                <button class="btn-add" style="margin-top: -30px;"><span class="fas fa-cart-plus"></span></button>
+                                <form class="add-cart-form" method="POST">
+                                    {{ csrf_field() }}
+                                    <input type="text" name="number" value="1" id="" style="display: none;">
+                                    <input type="text" name="product_id" value="{{$suggest->id}}" id="" style="display: none;">
+                                    <button class="btn-add" style="margin-top: -30px;" type="submit"><span class="fas fa-cart-plus"></span></button>
+                                </form>
                             </div>
                         @endforeach
                     </div>
                 </div>
             </div>
         </div>
-    <script src="{{asset('assests/js/user/detail-product.js')}}"></script>
+        <button id="open-modal-btn" type="button" class="btn d-none" data-toggle="modal" data-target="#exampleModal">Thêm mới</button>
+        <div class="modal" id="exampleModal" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="alert alert-success alert-dismissible fade show mb-0" role="alert">
+                <strong id="model-title" >Thêm sản phẩm vào giỏ hàng thành công!</strong>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+            </div>
+            </div>
+        </div>
+        <script src="{{asset('assests/js/user/add-to-cart.js')}}"></script>
+        <script src="{{asset('assests/js/user/detail-product.js')}}"></script>
     @endsection

@@ -40,11 +40,11 @@ m<!DOCTYPE html>
             <li class="nav-item nav-profile dropdown">
               <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
                 <div class="nav-profile-img">
-                  <img src="{{ asset('adminTemplate/assets/images/faces/face1.jpg') }}" alt="image">
+                  <img src="{{ asset(session('user')->avatar) }}" alt="image">
                   <span class="availability-status online"></span>
                 </div>
                 <div class="nav-profile-text">
-                  <p class="mb-1 text-white">Administrator</p>
+                  <p class="mb-1 text-white">{{session('user')->name}}</p>
                 </div>
               </a>
               <div class="dropdown-menu navbar-dropdown" aria-labelledby="profileDropdown">
@@ -172,12 +172,12 @@ m<!DOCTYPE html>
             <li class="nav-item nav-profile">
               <a href="#" class="nav-link">
                 <div class="nav-profile-image">
-                  <img src="{{ asset('adminTemplate/assets/images/faces/face1.jpg') }}" alt="profile">
+                  <img src="{{ asset(session('user')->avatar) }}" alt="profile">
                   <span class="login-status online"></span>
                   <!--change to offline or busy as needed-->
                 </div>
                 <div class="nav-profile-text d-flex flex-column">
-                  <span class="font-weight-bold mb-2">Administrator</span>
+                  <span class="font-weight-bold mb-2">{{session('user')->name}}</span>
                   <span class="text-secondary text-small role"><em>Quản trị viên</em></span>
                 </div>
                 <i class="mdi mdi-bookmark-check text-success nav-profile-badge"></i>
@@ -255,11 +255,11 @@ m<!DOCTYPE html>
               </a>
               <div class="collapse" id="general-pages">
                 <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> <a class="nav-link" href="{{URL::to('admin/management-orders')}}"> Đặt hàng </a></li>
-                  <li class="nav-item"> <a class="nav-link" href="pages/samples/login.html"> Đang giao </a></li>
-                  <li class="nav-item"> <a class="nav-link" href="pages/samples/register.html"> Đã giao </a></li>
-                  <li class="nav-item"> <a class="nav-link" href="pages/samples/error-404.html"> Đã hủy </a></li>
-                  <li class="nav-item"> <a class="nav-link" href="pages/samples/error-500.html"> Đặt bàn </a></li>
+                  <li class="nav-item"> <a class="nav-link" href="{{URL::to('admin/management-order/0')}}"> Tất cả </a></li>
+                  <li class="nav-item"> <a class="nav-link" href="{{URL::to('admin/management-order/1')}}"> Đặt hàng </a></li>
+                  <li class="nav-item"> <a class="nav-link" href="{{URL::to('admin/management-order/2')}}"> Đang giao </a></li>
+                  <li class="nav-item"> <a class="nav-link" href="{{URL::to('admin/management-order/3')}}"> Đã giao </a></li>
+                  <li class="nav-item"> <a class="nav-link" href="{{URL::to('admin/management-order/4')}}"> Đã hủy </a></li>
                 </ul>
               </div>
             </li>

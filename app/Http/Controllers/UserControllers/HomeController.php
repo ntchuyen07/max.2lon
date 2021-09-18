@@ -29,17 +29,25 @@ class HomeController extends Controller
         return view('user.home',compact('posts'));
     }
 
-    function menu($id)
+    function menu($id,Request $request)
     {
-        if ($id==0) {
-            $products = Product::paginate(12);
+        if (!$request->query('amount')) {
+            $amount = 12;
         } else {
-            $products = Product::where('category_id', '=', $id)->paginate(12);
+            $amount = $request->query('amount');
+        }
+        
+        if ($id==0) {
+            $products = Product::paginate($amount)->withQueryString();
+        } else {
+            $products = Product::where('category_id', '=', $id)->paginate($amount)->withQueryString();
         }
         foreach ($products as $product) {
             $product->image = Image::where('type', '=', 'product')->where('type_id', $product->id)->first()->path;
         }
-        return view('user.products', compact('products'));
+        $categories = Category::all();
+        $id_cate = $id;
+        return view('user.products', compact('products','categories','amount','id_cate'));
     }
     function account()
     {
@@ -59,14 +67,6 @@ class HomeController extends Controller
         }
         return view('user.detail-product',compact('product','images','suggests'));
     }
-    function carts()
-    {
-        return view('user.carts');
-    }
-    function order(Request $request)
-    {
-        return view('user.order',compact('request'));
-    }
     function about_us() 
     {
         return view('user.about-us');
@@ -74,5 +74,28 @@ class HomeController extends Controller
     function logout() {
         Session::forget('user');
         return redirect()->to('home');
+    }
+
+    function search(Request $request)
+    {
+        $name = $request->query('name') ? $request->query('name') : '';
+        $price = $request->query('price') ? $request->query('price') : 500000;
+        $amount = $request->query('amount') ? $request->query('amount') : 12;
+        if (!$request->query('category')) {
+            $products = Product::orderBy('price', 'asc')->where('name', 'like', '%'.$name.'%')
+                            ->where('price','<=', $price)
+                            ->paginate($amount)->withQueryString();
+        } else {
+            $products = Product::orderBy('price', 'asc')->where('name', 'like', '%'.$name.'%')
+                            ->where('price','<=', $price)
+                            ->whereIn('category_id', $request->query('category'))
+                            ->paginate($amount)->withQueryString();
+        }
+        foreach ($products as $product) {
+            $product->image = Image::where('type', '=', 'product')->where('type_id', $product->id)->first()->path;
+        }
+        $categories = Category::all();
+        $id_cate = '';
+        return view('user.products', compact('products','categories','amount', 'id_cate'));
     }
 }

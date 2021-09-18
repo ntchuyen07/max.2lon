@@ -4,8 +4,10 @@
     <link rel="stylesheet" href="{{ asset('assests/css/user/user.blog.css') }}">
 @endsection
 @section('content')
-    <div class="container-fuild">
-        <img class="img-banner" src="{{ asset('assests/images/banner/blog-post.jpg') }}" alt="">
+    <div class="container-fuild img-banner-post d-flex align-items-center justify-content-center">
+        <form action="{{URL::to('/list-posts')}}" method="GET">
+            <input type="text" name="search" id="" placeholder="Nhập tiêu đề bài viết bạn muốn tìm kiếm..." class="search-post">
+        </form>
     </div>
     <div class="container-fuild blog-form">
         <div class="row">
@@ -79,17 +81,6 @@
                 @endforeach
             </div>
         </div>
-        <div class="row pagina">
-            <div class="pagination">
-                <a href="#">&laquo;</a>
-                <a href="#" class="active">1</a>
-                <a href="#">2</a>
-                <a href="#">3</a>
-                <a href="#">4</a>
-                <a href="#">5</a>
-                <a href="#">6</a>
-                <a href="#">&raquo;</a>
-              </div>
-        </div>
+        <div>{!! $posts->links("pagination::bootstrap-4") !!}</div>
     </div>
 @endsection

@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('style')
-    <link rel="stylesheet" href="../resources/css/admin.dashboard.css">
+    <link rel="stylesheet" href="{{asset('/assests/css/admin/admin.dashboard.css')}}">
 @endsection
 
 @section('content')
@@ -21,7 +21,7 @@
             <img src="{{ asset('adminTemplate/assets/images/dashboard/circle.svg') }}" class="card-img-absolute" alt="circle-image" />
             <h4 class="font-weight-normal mb-3">Người dùng <i class="mdi mdi-account mdi-24px float-right"></i>
             </h4>
-            <h2 class="mb-5">15.000</h2>
+            <h2 class="mb-5">{{$users->count()}}</h2>
             <h6 class="card-text">Tăng 60%</h6>
           </div>
         </div>
@@ -32,7 +32,7 @@
             <img src="{{ asset('adminTemplate/assets/images/dashboard/circle.svg') }}" class="card-img-absolute" alt="circle-image" />
             <h4 class="font-weight-normal mb-3">Đơn đặt hàng <i class="mdi mdi-cart mdi-24px float-right"></i>
             </h4>
-            <h2 class="mb-5">45.634</h2>
+            <h2 class="mb-5">{{$orders->count()}}</h2>
             <h6 class="card-text">Tăng 10%</h6>
           </div>
         </div>
@@ -41,9 +41,9 @@
         <div class="card bg-gradient-success card-img-holder text-white">
           <div class="card-body">
             <img src="{{ asset('adminTemplate/assets/images/dashboard/circle.svg') }}" class="card-img-absolute" alt="circle-image" />
-            <h4 class="font-weight-normal mb-3">Đơn đặt bàn <i class="mdi mdi-clock-fast mdi-24px float-right"></i>
+            <h4 class="font-weight-normal mb-3">Bài viết <i class="mdi mdi-clock-fast mdi-24px float-right"></i>
             </h4>
-            <h2 class="mb-5">95.741</h2>
+            <h2 class="mb-5">{{$posts->count()}}</h2>
             <h6 class="card-text">Tăng 5%</h6>
           </div>
         </div>
@@ -55,45 +55,40 @@
           <div class="card-body">
             <div class="d-flex align-items-center">
               <h5 class="card-title float-left">Đơn hàng mới nhất</h5>
-              <a href="https://www.bootstrapdash.com/product/purple-bootstrap-admin-template?utm_source=organic&utm_medium=banner&utm_campaign=free-preview" target="_blank" class="btn btn-success ml-auto">Xác nhận</a>
-              <a href=""><i class="mdi mdi-close" id="bannerClose"></i></a>
+              <a href="" class="btn btn-success ml-auto">Xác nhận</a>
             </div>
-            <div>
-              <p class="new-order">Người nhận: Hồ Thanh Phong - 0123456789</p>
-              <p class="new-order">Địa chỉ nhận hàng: 100 Ngô Quyền, phường 5, thành phố Đông Hà, Quảng Trị</p>
-              <p class="new-order">Thời gian nhận hàng dự kiến: 15:00 29/08/2021</p>
-              <table class="table">
-                <tr>
-                  <th>STT</th>
-                  <th>Tên sản phẩm</th>
-                  <th>Số lượng</th>
-                  <th>Đơn giá</th>
-                  <th>Tổng tiền</th>
-                </tr>
-                <tr>
-                  <td>1</td>
-                  <td>Gà hấp mắm</td>
-                  <td>2</td>
-                  <td>270.000</td>
-                  <td>540.000</td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>Soda Phúc bồn tử</td>
-                  <td>5</td>
-                  <td>35.000</td>
-                  <td>175.000</td>
-                </tr>
-                <tr>
-                  <th colspan="4">Voucher</th>
-                  <th>- 5%</th>
-                </tr>
-                <tr>
-                  <th colspan="4">Tổng thanh toán</th>
-                  <th class="text-danger">679.250</th>
-                </tr>
-              </table>
-            </div>
+            @foreach ($orders as $index=>$order)
+                @if ($index==0 && $order->status_id ==1)
+                <div>
+                  <p class="new-order">Người nhận: {{$order->receiver_name}} - {{$order->phone}}</p>
+                  <p class="new-order">Địa chỉ nhận hàng: {{$order->address}}</p>
+                  <p class="new-order">Thời gian nhận hàng dự kiến:  {{ \Carbon\Carbon::parse($order->timeorder)->format('H:i:s d/m/Y')}}</p>
+                  <p class="new-order">Lời nhắn: {{$order->message}}</p>
+                  <table class="table">
+                    <tr>
+                      <th>STT</th>
+                      <th>Tên sản phẩm</th>
+                      <th>Số lượng</th>
+                      <th>Đơn giá</th>
+                      <th>Tổng tiền</th>
+                    </tr>
+                    @foreach ($order->details as $index=>$detail)
+                      <tr>
+                        <td>{{$index +1}}</td>
+                        <td>{{$detail->name}}</td>
+                        <td>{{$detail->amount}}</td>
+                        <td>{{number_format($detail->price)}}</td>
+                        <td>{{number_format($detail->amount*$detail->price)}}</td>
+                      </tr>
+                    @endforeach
+                    <tr>
+                      <th colspan="4">Tổng thanh toán</th>
+                      <th class="text-danger">{{number_format($order->total)}}</th>
+                    </tr>
+                  </table>
+                </div>
+                @endif
+            @endforeach
           </div>
         </div>
       </div>
@@ -277,50 +272,34 @@
                   </tr>
                 </thead>
                 <tbody>
+                  @foreach ($users as $index=>$user)
                   <tr>
                     <td>
-                      <img src="{{ asset('adminTemplate/assets/images/faces/face1.jpg') }}" class="mr-2" alt="image"> Anh Tuấn
+                      <img src="{{ asset($user->avatar) }}" class="mr-2" alt="image"> {{$user->name}}
                     </td>
-                    <td> anhtuandeptrai@gmail.com </td>
+                    <td> {{$user->email}}</td>
                     <td>
-                      <label class="badge badge-success">Thành viên</label>
+                      @switch($user->role)
+                          @case(1)
+                              <label class="badge badge-success">Thành viên</label>
+                              @break
+                          @case(2)
+                              <label class="badge badge-danger">Quản trị viên</label>
+                              @break
+                          @case(3)
+                              <label class="badge badge-info">Shipper</label>
+                              @break
+                          @case(4)
+                              <label class="badge badge-warning">VIP</label>
+                              @break
+                          @default
+                              
+                      @endswitch
                     </td>
-                    <td> 0123456789 </td>
+                    <td> {{$user->phone}} </td>
                     <td> WD-12345 </td>
                   </tr>
-                  <tr>
-                    <td>
-                      <img src="{{ asset('adminTemplate/assets/images/faces/face2.jpg') }}" class="mr-2" alt="image"> Minh Tú
-                    </td>
-                    <td> minhtu2001@gmail.com </td>
-                    <td>
-                      <label class="badge badge-warning">VIP</label>
-                    </td>
-                    <td> 0123452017 </td>
-                    <td> WD-12346 </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <img src="{{ asset('adminTemplate/assets/images/faces/face3.jpg') }}" class="mr-2" alt="image"> Nhật Nam
-                    </td>
-                    <td> greenbook.vku@gmail.com </td>
-                    <td>
-                      <label class="badge badge-info">Shipper</label>
-                    </td>
-                    <td> 0912345123 </td>
-                    <td> WD-12347 </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <img src="{{ asset('adminTemplate/assets/images/faces/face4.jpg') }}" class="mr-2" alt="image"> Hoàng Hải
-                    </td>
-                    <td> hoanghai.max.2lon@gmail.com </td>
-                    <td>
-                      <label class="badge badge-danger">Quản trị viên</label>
-                    </td>
-                    <td> 1234567321 </td>
-                    <td> WD-12348 </td>
-                  </tr>
+                @endforeach
                 </tbody>
               </table>
             </div>
@@ -333,36 +312,33 @@
         <div class="card">
           <div class="card-body">
             <h4 class="card-title">Bài viết mới nhất</h4>
-            <div class="d-flex">
-              <div class="d-flex align-items-center mr-4 text-muted font-weight-light">
-                <i class="mdi mdi-account-outline icon-sm mr-2"></i>
-                <span>Nhật Nam</span>
-              </div>
-              <div class="d-flex align-items-center text-muted font-weight-light">
-                <i class="mdi mdi-clock icon-sm mr-2"></i>
-                <span>11:08 09/08/2021</span>
-              </div>
-            </div>
-            <div class="row mt-3">
-              <div class="col-6 pr-1">
-                <img src="{{ asset('adminTemplate/assets/images/dashboard/img_1.jpg') }}" class="mb-2 mw-100 w-100 rounded" alt="image">
-                <img src="{{ asset('adminTemplate/assets/images/dashboard/img_4.jpg') }}" class="mw-100 w-100 rounded" alt="image">
-              </div>
-              <div class="col-6 pl-1">
-                <img src="{{ asset('adminTemplate/assets/images/dashboard/img_2.jpg') }}" class="mb-2 mw-100 w-100 rounded" alt="image">
-                <img src="{{ asset('adminTemplate/assets/images/dashboard/img_3.jpg') }}" class="mw-100 w-100 rounded" alt="image">
-              </div>
-            </div>
-            <div class="d-flex mt-5 align-items-top">
-              <img src="{{ asset('adminTemplate/assets/images/faces/face3.jpg') }}" class="img-sm rounded-circle mr-3" alt="image">
-              <div class="mb-0 flex-grow">
-                <h5 class="mr-2 mb-2">Lựa chọn món cho bữa tiệc 5 người</h5>
-                <p class="mb-0 font-weight-light">It is a long established fact that a reader will be distracted by the readable content of a page.</p>
-              </div>
-              <div class="ml-auto">
-                <button class="btn btn-success">Duyệt</button>
-              </div>
-            </div>
+            @foreach ($posts as $index=>$post)
+                @if ($index==0)
+                <div class="d-flex">
+                  <div class="d-flex align-items-center mr-4 text-muted font-weight-light">
+                    <i class="mdi mdi-account-outline icon-sm mr-2"></i>
+                    <span>{{$post->name}}</span>
+                  </div>
+                  <div class="d-flex align-items-center text-muted font-weight-light">
+                    <i class="mdi mdi-clock icon-sm mr-2"></i>
+                    <span>{{$post->created_at ->format('H:i:s d-m-Y')}}</span>
+                  </div>
+                </div>
+                <div class="row mt-3">
+                    <img src="{{ asset($post->path) }}" class="mw-100 w-100 rounded" alt="image">
+                </div>
+                <div class="d-flex mt-5 align-items-top">
+                  <img src="{{ asset('adminTemplate/assets/images/faces/face3.jpg') }}" class="img-sm rounded-circle mr-3" alt="image">
+                  <div class="mb-0 flex-grow">
+                    <h5 class="mr-2 mb-2">{{$post->title}}</h5>
+                    <div class="mb-0 font-weight-light content-post-dashboard">{!!$post->content!!}</div>
+                  </div>
+                  <div class="ml-auto">
+                    <button class="btn btn-success">Duyệt</button>
+                  </div>
+                </div>
+                @endif
+            @endforeach
           </div>
         </div>
       </div>
